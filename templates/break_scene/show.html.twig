@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BreakScene{% endblock %}
+
+{% block body %}
+    <h1>BreakScene</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ break_scene.id }}</td>
+            </tr>
+            <tr>
+                <th>Background</th>
+                <td>{{ break_scene.background }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ break_scene.description }}</td>
+            </tr>
+            <tr>
+                <th>SceneN</th>
+                <td>{{ break_scene.sceneN }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('break_scene_index') }}">back to list</a>
+
+    <a href="{{ path('break_scene_edit', {'id': break_scene.id}) }}">edit</a>
+
+    {{ include('break_scene/_delete_form.html.twig') }}
+{% endblock %}

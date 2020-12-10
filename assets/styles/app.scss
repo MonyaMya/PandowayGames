@@ -1,0 +1,10 @@
+@import "~bootstrap/scss/bootstrap";
+// @import "navbar";
+body {
+  background-color: red;
+}
+$primary: darken(#428bca, 20%);
+
+.navbar-dark, .bg-dark, .navbar, .navbar-expand-lg  {
+  background: #B0413E;
+}
