@@ -776,218 +776,262 @@ SELECT|sys.sys_config
     <table id="239" parent="2" name="game">
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
-    <column id="240" parent="235" name="id">
+    <table id="240" parent="2" name="user">
+      <Collation>utf8mb4_unicode_ci</Collation>
+    </table>
+    <column id="241" parent="235" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="241" parent="235" name="game_id">
+    <column id="242" parent="235" name="game_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="242" parent="235" name="background">
+    <column id="243" parent="235" name="background">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="243" parent="235" name="description">
+    <column id="244" parent="235" name="description">
       <Position>4</Position>
       <DataType>longtext|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="244" parent="235" name="scene_n">
+    <column id="245" parent="235" name="scene_n">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="245" parent="235" name="IDX_F0041584E48FD905">
+    <index id="246" parent="235" name="IDX_F0041584E48FD905">
       <ColNames>game_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="246" parent="235" name="PRIMARY">
+    <key id="247" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="247" parent="235" name="FK_F0041584E48FD905">
+    <foreign-key id="248" parent="235" name="FK_F0041584E48FD905">
       <ColNames>game_id</ColNames>
       <RefTableName>game</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="248" parent="236" name="id">
+    <column id="249" parent="236" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="249" parent="236" name="game_id">
+    <column id="250" parent="236" name="game_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="250" parent="236" name="background">
+    <column id="251" parent="236" name="background">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="251" parent="236" name="x_axis">
+    <column id="252" parent="236" name="x_axis">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="252" parent="236" name="y_axis">
+    <column id="253" parent="236" name="y_axis">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="253" parent="236" name="clue_name">
+    <column id="254" parent="236" name="clue_name">
       <Position>6</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="254" parent="236" name="clue_img">
+    <column id="255" parent="236" name="clue_img">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="255" parent="236" name="description">
+    <column id="256" parent="236" name="description">
       <Position>8</Position>
       <DataType>longtext|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="256" parent="236" name="scene_n">
+    <column id="257" parent="236" name="scene_n">
       <Position>9</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="257" parent="236" name="IDX_268AADD1E48FD905">
+    <index id="258" parent="236" name="IDX_268AADD1E48FD905">
       <ColNames>game_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="258" parent="236" name="PRIMARY">
+    <key id="259" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="259" parent="236" name="FK_268AADD1E48FD905">
+    <foreign-key id="260" parent="236" name="FK_268AADD1E48FD905">
       <ColNames>game_id</ColNames>
       <RefTableName>game</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="260" parent="237" name="id">
+    <column id="261" parent="237" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="261" parent="237" name="background">
+    <column id="262" parent="237" name="game_id">
       <Position>2</Position>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="262" parent="237" name="name">
+    <column id="263" parent="237" name="background">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="263" parent="237" name="text">
+    <column id="264" parent="237" name="name">
       <Position>4</Position>
-      <DataType>longtext|0s</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <column id="264" parent="237" name="character_img">
-      <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="265" parent="237" name="description">
-      <Position>6</Position>
+    <column id="265" parent="237" name="text">
+      <Position>5</Position>
       <DataType>longtext|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="266" parent="237" name="scene_n">
+    <column id="266" parent="237" name="character_img">
+      <Position>6</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="267" parent="237" name="description">
       <Position>7</Position>
+      <DataType>longtext|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="268" parent="237" name="scene_n">
+      <Position>8</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="267" parent="237" name="PRIMARY">
+    <index id="269" parent="237" name="IDX_4561D862E48FD905">
+      <ColNames>game_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="270" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="268" parent="238" name="version">
+    <foreign-key id="271" parent="237" name="FK_4561D862E48FD905">
+      <ColNames>game_id</ColNames>
+      <RefTableName>game</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="272" parent="238" name="version">
       <Position>1</Position>
       <DataType>varchar(191)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="269" parent="238" name="executed_at">
+    <column id="273" parent="238" name="executed_at">
       <Position>2</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <column id="270" parent="238" name="execution_time">
+    <column id="274" parent="238" name="execution_time">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <key id="271" parent="238" name="PRIMARY">
+    <key id="275" parent="238" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>version</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="272" parent="239" name="id">
+    <column id="276" parent="239" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="273" parent="239" name="title">
+    <column id="277" parent="239" name="title">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="274" parent="239" name="poster">
+    <column id="278" parent="239" name="poster">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="275" parent="239" name="main_color">
+    <column id="279" parent="239" name="main_color">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="276" parent="239" name="secondary_color">
+    <column id="280" parent="239" name="secondary_color">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="277" parent="239" name="description">
+    <column id="281" parent="239" name="game_description">
       <Position>6</Position>
       <DataType>longtext|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="278" parent="239" name="is_published">
+    <column id="282" parent="239" name="is_published">
       <Position>7</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="279" parent="239" name="dialog_id">
-      <Position>8</Position>
-      <DataType>int(11)|0s</DataType>
-    </column>
-    <index id="280" parent="239" name="IDX_232B318C5E46C4E2">
-      <ColNames>dialog_id</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="281" parent="239" name="PRIMARY">
+    <key id="283" parent="239" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="282" parent="239" name="FK_232B318C5E46C4E2">
-      <ColNames>dialog_id</ColNames>
-      <RefTableName>dialog</RefTableName>
-      <RefColNames>id</RefColNames>
-    </foreign-key>
+    <column id="284" parent="240" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="285" parent="240" name="email">
+      <Position>2</Position>
+      <DataType>varchar(180)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="286" parent="240" name="roles">
+      <Position>3</Position>
+      <DataType>json|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="287" parent="240" name="password">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="288" parent="240" name="name">
+      <Position>5</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="289" parent="240" name="UNIQ_8D93D649E7927C74">
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="290" parent="240" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="291" parent="240" name="UNIQ_8D93D649E7927C74">
+      <ColNames>email</ColNames>
+      <UnderlyingIndexName>UNIQ_8D93D649E7927C74</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>
