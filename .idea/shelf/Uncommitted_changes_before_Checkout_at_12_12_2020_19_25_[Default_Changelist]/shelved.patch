@@ -1,0 +1,1665 @@
+Index: templates/break_scene/show.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/break_scene/show.html.twig b/templates/break_scene/show.html.twig
+deleted file mode 100644
+--- a/templates/break_scene/show.html.twig	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,34 +0,0 @@
+-{% extends 'base.html.twig' %}
+-
+-{% block title %}BreakScene{% endblock %}
+-
+-{% block body %}
+-    <h1>BreakScene</h1>
+-
+-    <table class="table">
+-        <tbody>
+-            <tr>
+-                <th>Id</th>
+-                <td>{{ break_scene.id }}</td>
+-            </tr>
+-            <tr>
+-                <th>Background</th>
+-                <td>{{ break_scene.background }}</td>
+-            </tr>
+-            <tr>
+-                <th>Description</th>
+-                <td>{{ break_scene.description }}</td>
+-            </tr>
+-            <tr>
+-                <th>SceneN</th>
+-                <td>{{ break_scene.sceneN }}</td>
+-            </tr>
+-        </tbody>
+-    </table>
+-
+-    <a href="{{ path('break_scene_index') }}">back to list</a>
+-
+-    <a href="{{ path('break_scene_edit', {'id': break_scene.id}) }}">edit</a>
+-
+-    {{ include('break_scene/_delete_form.html.twig') }}
+-{% endblock %}
+Index: templates/dialog/new.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/dialog/new.html.twig b/templates/dialog/new.html.twig
+deleted file mode 100644
+--- a/templates/dialog/new.html.twig	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,11 +0,0 @@
+-{% extends 'base.html.twig' %}
+-
+-{% block title %}New Dialog{% endblock %}
+-
+-{% block body %}
+-    <h1>Create new Dialog</h1>
+-
+-    {{ include('dialog/_form.html.twig') }}
+-
+-    <a href="{{ path('dialog_index') }}">back to list</a>
+-{% endblock %}
+Index: src/Repository/BreakSceneRepository.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Repository/BreakSceneRepository.php b/src/Repository/BreakSceneRepository.php
+deleted file mode 100644
+--- a/src/Repository/BreakSceneRepository.php	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,50 +0,0 @@
+-<?php
+-
+-namespace App\Repository;
+-
+-use App\Entity\BreakScene;
+-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+-use Doctrine\Persistence\ManagerRegistry;
+-
+-/**
+- * @method BreakScene|null find($id, $lockMode = null, $lockVersion = null)
+- * @method BreakScene|null findOneBy(array $criteria, array $orderBy = null)
+- * @method BreakScene[]    findAll()
+- * @method BreakScene[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+- */
+-class BreakSceneRepository extends ServiceEntityRepository
+-{
+-    public function __construct(ManagerRegistry $registry)
+-    {
+-        parent::__construct($registry, BreakScene::class);
+-    }
+-
+-    // /**
+-    //  * @return BreakScene[] Returns an array of BreakScene objects
+-    //  */
+-    /*
+-    public function findByExampleField($value)
+-    {
+-        return $this->createQueryBuilder('b')
+-            ->andWhere('b.exampleField = :val')
+-            ->setParameter('val', $value)
+-            ->orderBy('b.id', 'ASC')
+-            ->setMaxResults(10)
+-            ->getQuery()
+-            ->getResult()
+-        ;
+-    }
+-    */
+-
+-    /*
+-    public function findOneBySomeField($value): ?BreakScene
+-    {
+-        return $this->createQueryBuilder('b')
+-            ->andWhere('b.exampleField = :val')
+-            ->setParameter('val', $value)
+-            ->getQuery()
+-            ->getOneOrNullResult()
+-        ;
+-    }
+-    */
+-}
+Index: src/Repository/ClueRepository.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Repository/ClueRepository.php b/src/Repository/ClueRepository.php
+deleted file mode 100644
+--- a/src/Repository/ClueRepository.php	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,50 +0,0 @@
+-<?php
+-
+-namespace App\Repository;
+-
+-use App\Entity\Clue;
+-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+-use Doctrine\Persistence\ManagerRegistry;
+-
+-/**
+- * @method Clue|null find($id, $lockMode = null, $lockVersion = null)
+- * @method Clue|null findOneBy(array $criteria, array $orderBy = null)
+- * @method Clue[]    findAll()
+- * @method Clue[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+- */
+-class ClueRepository extends ServiceEntityRepository
+-{
+-    public function __construct(ManagerRegistry $registry)
+-    {
+-        parent::__construct($registry, Clue::class);
+-    }
+-
+-    // /**
+-    //  * @return Clue[] Returns an array of Clue objects
+-    //  */
+-    /*
+-    public function findByExampleField($value)
+-    {
+-        return $this->createQueryBuilder('c')
+-            ->andWhere('c.exampleField = :val')
+-            ->setParameter('val', $value)
+-            ->orderBy('c.id', 'ASC')
+-            ->setMaxResults(10)
+-            ->getQuery()
+-            ->getResult()
+-        ;
+-    }
+-    */
+-
+-    /*
+-    public function findOneBySomeField($value): ?Clue
+-    {
+-        return $this->createQueryBuilder('c')
+-            ->andWhere('c.exampleField = :val')
+-            ->setParameter('val', $value)
+-            ->getQuery()
+-            ->getOneOrNullResult()
+-        ;
+-    }
+-    */
+-}
+Index: src/Controller/BreakSceneController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Controller/BreakSceneController.php b/src/Controller/BreakSceneController.php
+deleted file mode 100644
+--- a/src/Controller/BreakSceneController.php	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,94 +0,0 @@
+-<?php
+-
+-namespace App\Controller;
+-
+-use App\Entity\BreakScene;
+-use App\Form\BreakSceneType;
+-use App\Repository\BreakSceneRepository;
+-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+-use Symfony\Component\HttpFoundation\Request;
+-use Symfony\Component\HttpFoundation\Response;
+-use Symfony\Component\Routing\Annotation\Route;
+-
+-/**
+- * @Route("/break/scene")
+- */
+-class BreakSceneController extends AbstractController
+-{
+-    /**
+-     * @Route("/", name="break_scene_index", methods={"GET"})
+-     */
+-    public function index(BreakSceneRepository $breakSceneRepository): Response
+-    {
+-        return $this->render('break_scene/index.html.twig', [
+-            'break_scenes' => $breakSceneRepository->findAll(),
+-        ]);
+-    }
+-
+-    /**
+-     * @Route("/new", name="break_scene_new", methods={"GET","POST"})
+-     */
+-    public function new(Request $request): Response
+-    {
+-        $breakScene = new BreakScene();
+-        $form = $this->createForm(BreakSceneType::class, $breakScene);
+-        $form->handleRequest($request);
+-
+-        if ($form->isSubmitted() && $form->isValid()) {
+-            $entityManager = $this->getDoctrine()->getManager();
+-            $entityManager->persist($breakScene);
+-            $entityManager->flush();
+-
+-            return $this->redirectToRoute('break_scene_index');
+-        }
+-
+-        return $this->render('break_scene/new.html.twig', [
+-            'break_scene' => $breakScene,
+-            'form' => $form->createView(),
+-        ]);
+-    }
+-
+-    /**
+-     * @Route("/{id}", name="break_scene_show", methods={"GET"})
+-     */
+-    public function show(BreakScene $breakScene): Response
+-    {
+-        return $this->render('break_scene/show.html.twig', [
+-            'break_scene' => $breakScene,
+-        ]);
+-    }
+-
+-    /**
+-     * @Route("/{id}/edit", name="break_scene_edit", methods={"GET","POST"})
+-     */
+-    public function edit(Request $request, BreakScene $breakScene): Response
+-    {
+-        $form = $this->createForm(BreakSceneType::class, $breakScene);
+-        $form->handleRequest($request);
+-
+-        if ($form->isSubmitted() && $form->isValid()) {
+-            $this->getDoctrine()->getManager()->flush();
+-
+-            return $this->redirectToRoute('break_scene_index');
+-        }
+-
+-        return $this->render('break_scene/edit.html.twig', [
+-            'break_scene' => $breakScene,
+-            'form' => $form->createView(),
+-        ]);
+-    }
+-
+-    /**
+-     * @Route("/{id}", name="break_scene_delete", methods={"DELETE"})
+-     */
+-    public function delete(Request $request, BreakScene $breakScene): Response
+-    {
+-        if ($this->isCsrfTokenValid('delete'.$breakScene->getId(), $request->request->get('_token'))) {
+-            $entityManager = $this->getDoctrine()->getManager();
+-            $entityManager->remove($breakScene);
+-            $entityManager->flush();
+-        }
+-
+-        return $this->redirectToRoute('break_scene_index');
+-    }
+-}
+Index: src/Form/ClueType.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Form/ClueType.php b/src/Form/ClueType.php
+deleted file mode 100644
+--- a/src/Form/ClueType.php	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,32 +0,0 @@
+-<?php
+-
+-namespace App\Form;
+-
+-use App\Entity\Clue;
+-use Symfony\Component\Form\AbstractType;
+-use Symfony\Component\Form\FormBuilderInterface;
+-use Symfony\Component\OptionsResolver\OptionsResolver;
+-
+-class ClueType extends AbstractType
+-{
+-    public function buildForm(FormBuilderInterface $builder, array $options)
+-    {
+-        $builder
+-            ->add('background')
+-            ->add('xAxis')
+-            ->add('yAxis')
+-            ->add('clueName')
+-            ->add('clueImg')
+-            ->add('description')
+-            ->add('sceneN')
+-            ->add('game', null, ['choice_label' => 'title'])
+-        ;
+-    }
+-
+-    public function configureOptions(OptionsResolver $resolver)
+-    {
+-        $resolver->setDefaults([
+-            'data_class' => Clue::class,
+-        ]);
+-    }
+-}
+Index: templates/clue/_form.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/clue/_form.html.twig b/templates/clue/_form.html.twig
+deleted file mode 100644
+--- a/templates/clue/_form.html.twig	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,4 +0,0 @@
+-{{ form_start(form) }}
+-    {{ form_widget(form) }}
+-    <button class="btn">{{ button_label|default('Save') }}</button>
+-{{ form_end(form) }}
+Index: templates/break_scene/new.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/break_scene/new.html.twig b/templates/break_scene/new.html.twig
+deleted file mode 100644
+--- a/templates/break_scene/new.html.twig	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,11 +0,0 @@
+-{% extends 'base.html.twig' %}
+-
+-{% block title %}New BreakScene{% endblock %}
+-
+-{% block body %}
+-    <h1>Create new BreakScene</h1>
+-
+-    {{ include('break_scene/_form.html.twig') }}
+-
+-    <a href="{{ path('break_scene_index') }}">back to list</a>
+-{% endblock %}
+Index: src/Entity/Dialog.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Entity/Dialog.php b/src/Entity/Dialog.php
+deleted file mode 100644
+--- a/src/Entity/Dialog.php	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,142 +0,0 @@
+-<?php
+-
+-namespace App\Entity;
+-
+-use App\Repository\DialogRepository;
+-use Doctrine\Common\Collections\ArrayCollection;
+-use Doctrine\Common\Collections\Collection;
+-use Doctrine\ORM\Mapping as ORM;
+-
+-/**
+- * @ORM\Entity(repositoryClass=DialogRepository::class)
+- */
+-class Dialog
+-{
+-    /**
+-     * @ORM\Id
+-     * @ORM\GeneratedValue
+-     * @ORM\Column(type="integer")
+-     */
+-    private $id;
+-
+-    /**
+-     * @ORM\Column(type="string", length=255)
+-     */
+-    private $background;
+-
+-    /**
+-     * @ORM\Column(type="string", length=255)
+-     */
+-    private $name;
+-
+-    /**
+-     * @ORM\Column(type="text")
+-     */
+-    private $text;
+-
+-    /**
+-     * @ORM\Column(type="string", length=255)
+-     */
+-    private $characterImg;
+-
+-    /**
+-     * @ORM\Column(type="text")
+-     */
+-    private $description;
+-
+-    /**
+-     * @ORM\Column(type="integer")
+-     */
+-    private $sceneN;
+-
+-    /**
+-     * @ORM\ManyToOne(targetEntity=Game::class, inversedBy="dialog")
+-     * @ORM\JoinColumn(nullable=false)
+-     */
+-    private $game;
+-
+-    public function getBackground(): ?string
+-    {
+-        return $this->background;
+-    }
+-
+-    public function setBackground(string $background): self
+-    {
+-        $this->background = $background;
+-
+-        return $this;
+-    }
+-
+-    public function getName(): ?string
+-    {
+-        return $this->name;
+-    }
+-
+-    public function setName(string $name): self
+-    {
+-        $this->name = $name;
+-
+-        return $this;
+-    }
+-
+-    public function getText(): ?string
+-    {
+-        return $this->text;
+-    }
+-
+-    public function setText(string $text): self
+-    {
+-        $this->text = $text;
+-
+-        return $this;
+-    }
+-
+-    public function getCharacterImg(): ?string
+-    {
+-        return $this->characterImg;
+-    }
+-
+-    public function setCharacterImg(string $characterImg): self
+-    {
+-        $this->characterImg = $characterImg;
+-
+-        return $this;
+-    }
+-
+-    public function getDescription(): ?string
+-    {
+-        return $this->description;
+-    }
+-
+-    public function setDescription(string $description): self
+-    {
+-        $this->description = $description;
+-
+-        return $this;
+-    }
+-
+-    public function getSceneN(): ?int
+-    {
+-        return $this->sceneN;
+-    }
+-
+-    public function setSceneN(int $sceneN): self
+-    {
+-        $this->sceneN = $sceneN;
+-
+-        return $this;
+-    }
+-
+-    public function getGame(): ?Game
+-    {
+-        return $this->game;
+-    }
+-
+-    public function setGame(?Game $game): self
+-    {
+-        $this->game = $game;
+-
+-        return $this;
+-    }
+-
+-}
+Index: src/Entity/Clue.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Entity/Clue.php b/src/Entity/Clue.php
+deleted file mode 100644
+--- a/src/Entity/Clue.php	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,162 +0,0 @@
+-<?php
+-
+-namespace App\Entity;
+-
+-use App\Repository\ClueRepository;
+-use Doctrine\ORM\Mapping as ORM;
+-
+-/**
+- * @ORM\Entity(repositoryClass=ClueRepository::class)
+- */
+-class Clue
+-{
+-    /**
+-     * @ORM\Id
+-     * @ORM\GeneratedValue
+-     * @ORM\Column(type="integer")
+-     */
+-    private $id;
+-
+-    /**
+-     * @ORM\Column(type="string", length=255)
+-     */
+-    private $background;
+-
+-    /**
+-     * @ORM\Column(type="integer")
+-     */
+-    private $xAxis;
+-
+-    /**
+-     * @ORM\Column(type="integer")
+-     */
+-    private $yAxis;
+-
+-    /**
+-     * @ORM\Column(type="string", length=255)
+-     */
+-    private $clueName;
+-
+-    /**
+-     * @ORM\Column(type="string", length=255)
+-     */
+-    private $clueImg;
+-
+-    /**
+-     * @ORM\Column(type="text")
+-     */
+-    private $description;
+-
+-    /**
+-     * @ORM\Column(type="integer")
+-     */
+-    private $sceneN;
+-
+-    /**
+-     * @ORM\ManyToOne(targetEntity=Game::class, inversedBy="clue")
+-     * @ORM\JoinColumn(nullable=false)
+-     */
+-    private $game;
+-
+-    public function getId(): ?int
+-    {
+-        return $this->id;
+-    }
+-
+-    public function getBackground(): ?string
+-    {
+-        return $this->background;
+-    }
+-
+-    public function setBackground(string $background): self
+-    {
+-        $this->background = $background;
+-
+-        return $this;
+-    }
+-
+-    public function getXAxis(): ?int
+-    {
+-        return $this->xAxis;
+-    }
+-
+-    public function setXAxis(int $xAxis): self
+-    {
+-        $this->xAxis = $xAxis;
+-
+-        return $this;
+-    }
+-
+-    public function getYAxis(): ?int
+-    {
+-        return $this->yAxis;
+-    }
+-
+-    public function setYAxis(int $yAxis): self
+-    {
+-        $this->yAxis = $yAxis;
+-
+-        return $this;
+-    }
+-
+-    public function getClueName(): ?string
+-    {
+-        return $this->clueName;
+-    }
+-
+-    public function setClueName(string $clueName): self
+-    {
+-        $this->clueName = $clueName;
+-
+-        return $this;
+-    }
+-
+-    public function getClueImg(): ?string
+-    {
+-        return $this->clueImg;
+-    }
+-
+-    public function setClueImg(string $clueImg): self
+-    {
+-        $this->clueImg = $clueImg;
+-
+-        return $this;
+-    }
+-
+-    public function getDescription(): ?string
+-    {
+-        return $this->description;
+-    }
+-
+-    public function setDescription(string $description): self
+-    {
+-        $this->description = $description;
+-
+-        return $this;
+-    }
+-
+-    public function getSceneN(): ?int
+-    {
+-        return $this->sceneN;
+-    }
+-
+-    public function setSceneN(int $sceneN): self
+-    {
+-        $this->sceneN = $sceneN;
+-
+-        return $this;
+-    }
+-
+-    public function getGame(): ?Game
+-    {
+-        return $this->game;
+-    }
+-
+-    public function setGame(?Game $game): self
+-    {
+-        $this->game = $game;
+-
+-        return $this;
+-    }
+-
+-}
+Index: templates/break_scene/_delete_form.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/break_scene/_delete_form.html.twig b/templates/break_scene/_delete_form.html.twig
+deleted file mode 100644
+--- a/templates/break_scene/_delete_form.html.twig	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,5 +0,0 @@
+-<form method="post" action="{{ path('break_scene_delete', {'id': break_scene.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+-    <input type="hidden" name="_method" value="DELETE">
+-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ break_scene.id) }}">
+-    <button class="btn">Delete</button>
+-</form>
+Index: templates/clue/_delete_form.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/clue/_delete_form.html.twig b/templates/clue/_delete_form.html.twig
+deleted file mode 100644
+--- a/templates/clue/_delete_form.html.twig	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,5 +0,0 @@
+-<form method="post" action="{{ path('clue_delete', {'id': clue.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+-    <input type="hidden" name="_method" value="DELETE">
+-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ clue.id) }}">
+-    <button class="btn">Delete</button>
+-</form>
+Index: templates/break_scene/_form.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/break_scene/_form.html.twig b/templates/break_scene/_form.html.twig
+deleted file mode 100644
+--- a/templates/break_scene/_form.html.twig	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,4 +0,0 @@
+-{{ form_start(form) }}
+-    {{ form_widget(form) }}
+-    <button class="btn">{{ button_label|default('Save') }}</button>
+-{{ form_end(form) }}
+Index: templates/dialog/_delete_form.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/dialog/_delete_form.html.twig b/templates/dialog/_delete_form.html.twig
+deleted file mode 100644
+--- a/templates/dialog/_delete_form.html.twig	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,5 +0,0 @@
+-<form method="post" action="{{ path('dialog_delete', {'id': dialog.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+-    <input type="hidden" name="_method" value="DELETE">
+-    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ dialog.id) }}">
+-    <button class="btn">Delete</button>
+-</form>
+Index: templates/dialog/show.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/dialog/show.html.twig b/templates/dialog/show.html.twig
+deleted file mode 100644
+--- a/templates/dialog/show.html.twig	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,46 +0,0 @@
+-{% extends 'base.html.twig' %}
+-
+-{% block title %}Dialog{% endblock %}
+-
+-{% block body %}
+-    <h1>Dialog</h1>
+-
+-    <table class="table">
+-        <tbody>
+-            <tr>
+-                <th>Id</th>
+-                <td>{{ dialog.id }}</td>
+-            </tr>
+-            <tr>
+-                <th>Background</th>
+-                <td>{{ dialog.background }}</td>
+-            </tr>
+-            <tr>
+-                <th>Name</th>
+-                <td>{{ dialog.name }}</td>
+-            </tr>
+-            <tr>
+-                <th>Text</th>
+-                <td>{{ dialog.text }}</td>
+-            </tr>
+-            <tr>
+-                <th>CharacterImg</th>
+-                <td>{{ dialog.characterImg }}</td>
+-            </tr>
+-            <tr>
+-                <th>Description</th>
+-                <td>{{ dialog.description }}</td>
+-            </tr>
+-            <tr>
+-                <th>SceneN</th>
+-                <td>{{ dialog.sceneN }}</td>
+-            </tr>
+-        </tbody>
+-    </table>
+-
+-    <a href="{{ path('dialog_index') }}">back to list</a>
+-
+-    <a href="{{ path('dialog_edit', {'id': dialog.id}) }}">edit</a>
+-
+-    {{ include('dialog/_delete_form.html.twig') }}
+-{% endblock %}
+Index: templates/clue/show.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/clue/show.html.twig b/templates/clue/show.html.twig
+deleted file mode 100644
+--- a/templates/clue/show.html.twig	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,50 +0,0 @@
+-{% extends 'base.html.twig' %}
+-
+-{% block title %}Clue{% endblock %}
+-
+-{% block body %}
+-    <h1>Clue</h1>
+-
+-    <table class="table">
+-        <tbody>
+-            <tr>
+-                <th>Id</th>
+-                <td>{{ clue.id }}</td>
+-            </tr>
+-            <tr>
+-                <th>Background</th>
+-                <td>{{ clue.background }}</td>
+-            </tr>
+-            <tr>
+-                <th>XAxis</th>
+-                <td>{{ clue.xAxis }}</td>
+-            </tr>
+-            <tr>
+-                <th>YAxis</th>
+-                <td>{{ clue.yAxis }}</td>
+-            </tr>
+-            <tr>
+-                <th>ClueName</th>
+-                <td>{{ clue.clueName }}</td>
+-            </tr>
+-            <tr>
+-                <th>ClueImg</th>
+-                <td>{{ clue.clueImg }}</td>
+-            </tr>
+-            <tr>
+-                <th>Description</th>
+-                <td>{{ clue.description }}</td>
+-            </tr>
+-            <tr>
+-                <th>SceneN</th>
+-                <td>{{ clue.sceneN }}</td>
+-            </tr>
+-        </tbody>
+-    </table>
+-
+-    <a href="{{ path('clue_index') }}">back to list</a>
+-
+-    <a href="{{ path('clue_edit', {'id': clue.id}) }}">edit</a>
+-
+-    {{ include('clue/_delete_form.html.twig') }}
+-{% endblock %}
+Index: templates/break_scene/index.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/break_scene/index.html.twig b/templates/break_scene/index.html.twig
+deleted file mode 100644
+--- a/templates/break_scene/index.html.twig	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,39 +0,0 @@
+-{% extends 'base.html.twig' %}
+-
+-{% block title %}BreakScene index{% endblock %}
+-
+-{% block body %}
+-    <h1>BreakScene index</h1>
+-
+-    <table class="table">
+-        <thead>
+-            <tr>
+-                <th>Id</th>
+-                <th>Background</th>
+-                <th>Description</th>
+-                <th>SceneN</th>
+-                <th>actions</th>
+-            </tr>
+-        </thead>
+-        <tbody>
+-        {% for break_scene in break_scenes %}
+-            <tr>
+-                <td>{{ break_scene.id }}</td>
+-                <td>{{ break_scene.background }}</td>
+-                <td>{{ break_scene.description }}</td>
+-                <td>{{ break_scene.sceneN }}</td>
+-                <td>
+-                    <a href="{{ path('break_scene_show', {'id': break_scene.id}) }}">show</a>
+-                    <a href="{{ path('break_scene_edit', {'id': break_scene.id}) }}">edit</a>
+-                </td>
+-            </tr>
+-        {% else %}
+-            <tr>
+-                <td colspan="5">no records found</td>
+-            </tr>
+-        {% endfor %}
+-        </tbody>
+-    </table>
+-
+-    <a href="{{ path('break_scene_new') }}">Create new</a>
+-{% endblock %}
+Index: templates/dialog/index.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/dialog/index.html.twig b/templates/dialog/index.html.twig
+deleted file mode 100644
+--- a/templates/dialog/index.html.twig	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,45 +0,0 @@
+-{% extends 'base.html.twig' %}
+-
+-{% block title %}Dialog index{% endblock %}
+-
+-{% block body %}
+-    <h1>Dialog index</h1>
+-
+-    <table class="table">
+-        <thead>
+-            <tr>
+-                <th>Id</th>
+-                <th>Background</th>
+-                <th>Name</th>
+-                <th>Text</th>
+-                <th>CharacterImg</th>
+-                <th>Description</th>
+-                <th>SceneN</th>
+-                <th>actions</th>
+-            </tr>
+-        </thead>
+-        <tbody>
+-        {% for dialog in dialogs %}
+-            <tr>
+-                <td>{{ dialog.id }}</td>
+-                <td>{{ dialog.background }}</td>
+-                <td>{{ dialog.name }}</td>
+-                <td>{{ dialog.text }}</td>
+-                <td>{{ dialog.characterImg }}</td>
+-                <td>{{ dialog.description }}</td>
+-                <td>{{ dialog.sceneN }}</td>
+-                <td>
+-                    <a href="{{ path('dialog_show', {'id': dialog.id}) }}">show</a>
+-                    <a href="{{ path('dialog_edit', {'id': dialog.id}) }}">edit</a>
+-                </td>
+-            </tr>
+-        {% else %}
+-            <tr>
+-                <td colspan="8">no records found</td>
+-            </tr>
+-        {% endfor %}
+-        </tbody>
+-    </table>
+-
+-    <a href="{{ path('dialog_new') }}">Create new</a>
+-{% endblock %}
+Index: src/Controller/ClueController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Controller/ClueController.php b/src/Controller/ClueController.php
+deleted file mode 100644
+--- a/src/Controller/ClueController.php	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,94 +0,0 @@
+-<?php
+-
+-namespace App\Controller;
+-
+-use App\Entity\Clue;
+-use App\Form\ClueType;
+-use App\Repository\ClueRepository;
+-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+-use Symfony\Component\HttpFoundation\Request;
+-use Symfony\Component\HttpFoundation\Response;
+-use Symfony\Component\Routing\Annotation\Route;
+-
+-/**
+- * @Route("/clue")
+- */
+-class ClueController extends AbstractController
+-{
+-    /**
+-     * @Route("/", name="clue_index", methods={"GET"})
+-     */
+-    public function index(ClueRepository $clueRepository): Response
+-    {
+-        return $this->render('clue/index.html.twig', [
+-            'clues' => $clueRepository->findAll(),
+-        ]);
+-    }
+-
+-    /**
+-     * @Route("/new", name="clue_new", methods={"GET","POST"})
+-     */
+-    public function new(Request $request): Response
+-    {
+-        $clue = new Clue();
+-        $form = $this->createForm(ClueType::class, $clue);
+-        $form->handleRequest($request);
+-
+-        if ($form->isSubmitted() && $form->isValid()) {
+-            $entityManager = $this->getDoctrine()->getManager();
+-            $entityManager->persist($clue);
+-            $entityManager->flush();
+-
+-            return $this->redirectToRoute('clue_index');
+-        }
+-
+-        return $this->render('clue/new.html.twig', [
+-            'clue' => $clue,
+-            'form' => $form->createView(),
+-        ]);
+-    }
+-
+-    /**
+-     * @Route("/{id}", name="clue_show", methods={"GET"})
+-     */
+-    public function show(Clue $clue): Response
+-    {
+-        return $this->render('clue/show.html.twig', [
+-            'clue' => $clue,
+-        ]);
+-    }
+-
+-    /**
+-     * @Route("/{id}/edit", name="clue_edit", methods={"GET","POST"})
+-     */
+-    public function edit(Request $request, Clue $clue): Response
+-    {
+-        $form = $this->createForm(ClueType::class, $clue);
+-        $form->handleRequest($request);
+-
+-        if ($form->isSubmitted() && $form->isValid()) {
+-            $this->getDoctrine()->getManager()->flush();
+-
+-            return $this->redirectToRoute('clue_index');
+-        }
+-
+-        return $this->render('clue/edit.html.twig', [
+-            'clue' => $clue,
+-            'form' => $form->createView(),
+-        ]);
+-    }
+-
+-    /**
+-     * @Route("/{id}", name="clue_delete", methods={"DELETE"})
+-     */
+-    public function delete(Request $request, Clue $clue): Response
+-    {
+-        if ($this->isCsrfTokenValid('delete'.$clue->getId(), $request->request->get('_token'))) {
+-            $entityManager = $this->getDoctrine()->getManager();
+-            $entityManager->remove($clue);
+-            $entityManager->flush();
+-        }
+-
+-        return $this->redirectToRoute('clue_index');
+-    }
+-}
+Index: templates/dialog/_form.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/dialog/_form.html.twig b/templates/dialog/_form.html.twig
+deleted file mode 100644
+--- a/templates/dialog/_form.html.twig	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,4 +0,0 @@
+-{{ form_start(form) }}
+-    {{ form_widget(form) }}
+-    <button class="btn">{{ button_label|default('Save') }}</button>
+-{{ form_end(form) }}
+Index: src/Repository/DialogRepository.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Repository/DialogRepository.php b/src/Repository/DialogRepository.php
+deleted file mode 100644
+--- a/src/Repository/DialogRepository.php	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,50 +0,0 @@
+-<?php
+-
+-namespace App\Repository;
+-
+-use App\Entity\Dialog;
+-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+-use Doctrine\Persistence\ManagerRegistry;
+-
+-/**
+- * @method Dialog|null find($id, $lockMode = null, $lockVersion = null)
+- * @method Dialog|null findOneBy(array $criteria, array $orderBy = null)
+- * @method Dialog[]    findAll()
+- * @method Dialog[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+- */
+-class DialogRepository extends ServiceEntityRepository
+-{
+-    public function __construct(ManagerRegistry $registry)
+-    {
+-        parent::__construct($registry, Dialog::class);
+-    }
+-
+-    // /**
+-    //  * @return Dialog[] Returns an array of Dialog objects
+-    //  */
+-    /*
+-    public function findByExampleField($value)
+-    {
+-        return $this->createQueryBuilder('d')
+-            ->andWhere('d.exampleField = :val')
+-            ->setParameter('val', $value)
+-            ->orderBy('d.id', 'ASC')
+-            ->setMaxResults(10)
+-            ->getQuery()
+-            ->getResult()
+-        ;
+-    }
+-    */
+-
+-    /*
+-    public function findOneBySomeField($value): ?Dialog
+-    {
+-        return $this->createQueryBuilder('d')
+-            ->andWhere('d.exampleField = :val')
+-            ->setParameter('val', $value)
+-            ->getQuery()
+-            ->getOneOrNullResult()
+-        ;
+-    }
+-    */
+-}
+Index: src/Controller/DialogController.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Controller/DialogController.php b/src/Controller/DialogController.php
+deleted file mode 100644
+--- a/src/Controller/DialogController.php	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,94 +0,0 @@
+-<?php
+-
+-namespace App\Controller;
+-
+-use App\Entity\Dialog;
+-use App\Form\DialogType;
+-use App\Repository\DialogRepository;
+-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+-use Symfony\Component\HttpFoundation\Request;
+-use Symfony\Component\HttpFoundation\Response;
+-use Symfony\Component\Routing\Annotation\Route;
+-
+-/**
+- * @Route("/dialog")
+- */
+-class DialogController extends AbstractController
+-{
+-    /**
+-     * @Route("/", name="dialog_index", methods={"GET"})
+-     */
+-    public function index(DialogRepository $dialogRepository): Response
+-    {
+-        return $this->render('dialog/index.html.twig', [
+-            'dialogs' => $dialogRepository->findAll(),
+-        ]);
+-    }
+-
+-    /**
+-     * @Route("/new", name="dialog_new", methods={"GET","POST"})
+-     */
+-    public function new(Request $request): Response
+-    {
+-        $dialog = new Dialog();
+-        $form = $this->createForm(DialogType::class, $dialog);
+-        $form->handleRequest($request);
+-
+-        if ($form->isSubmitted() && $form->isValid()) {
+-            $entityManager = $this->getDoctrine()->getManager();
+-            $entityManager->persist($dialog);
+-            $entityManager->flush();
+-
+-            return $this->redirectToRoute('dialog_index');
+-        }
+-
+-        return $this->render('dialog/new.html.twig', [
+-            'dialog' => $dialog,
+-            'form' => $form->createView(),
+-        ]);
+-    }
+-
+-    /**
+-     * @Route("/{id}", name="dialog_show", methods={"GET"})
+-     */
+-    public function show(Dialog $dialog): Response
+-    {
+-        return $this->render('dialog/show.html.twig', [
+-            'dialog' => $dialog,
+-        ]);
+-    }
+-
+-    /**
+-     * @Route("/{id}/edit", name="dialog_edit", methods={"GET","POST"})
+-     */
+-    public function edit(Request $request, Dialog $dialog): Response
+-    {
+-        $form = $this->createForm(DialogType::class, $dialog);
+-        $form->handleRequest($request);
+-
+-        if ($form->isSubmitted() && $form->isValid()) {
+-            $this->getDoctrine()->getManager()->flush();
+-
+-            return $this->redirectToRoute('dialog_index');
+-        }
+-
+-        return $this->render('dialog/edit.html.twig', [
+-            'dialog' => $dialog,
+-            'form' => $form->createView(),
+-        ]);
+-    }
+-
+-    /**
+-     * @Route("/{id}", name="dialog_delete", methods={"DELETE"})
+-     */
+-    public function delete(Request $request, Dialog $dialog): Response
+-    {
+-        if ($this->isCsrfTokenValid('delete'.$dialog->getId(), $request->request->get('_token'))) {
+-            $entityManager = $this->getDoctrine()->getManager();
+-            $entityManager->remove($dialog);
+-            $entityManager->flush();
+-        }
+-
+-        return $this->redirectToRoute('dialog_index');
+-    }
+-}
+Index: src/Form/BreakSceneType.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Form/BreakSceneType.php b/src/Form/BreakSceneType.php
+deleted file mode 100644
+--- a/src/Form/BreakSceneType.php	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,28 +0,0 @@
+-<?php
+-
+-namespace App\Form;
+-
+-use App\Entity\BreakScene;
+-use Symfony\Component\Form\AbstractType;
+-use Symfony\Component\Form\FormBuilderInterface;
+-use Symfony\Component\OptionsResolver\OptionsResolver;
+-
+-class BreakSceneType extends AbstractType
+-{
+-    public function buildForm(FormBuilderInterface $builder, array $options)
+-    {
+-        $builder
+-            ->add('background')
+-            ->add('description')
+-            ->add('sceneN')
+-            ->add('game', null, ['choice_label' => 'title'])
+-        ;
+-    }
+-
+-    public function configureOptions(OptionsResolver $resolver)
+-    {
+-        $resolver->setDefaults([
+-            'data_class' => BreakScene::class,
+-        ]);
+-    }
+-}
+Index: templates/clue/edit.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/clue/edit.html.twig b/templates/clue/edit.html.twig
+deleted file mode 100644
+--- a/templates/clue/edit.html.twig	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,13 +0,0 @@
+-{% extends 'base.html.twig' %}
+-
+-{% block title %}Edit Clue{% endblock %}
+-
+-{% block body %}
+-    <h1>Edit Clue</h1>
+-
+-    {{ include('clue/_form.html.twig', {'button_label': 'Update'}) }}
+-
+-    <a href="{{ path('clue_index') }}">back to list</a>
+-
+-    {{ include('clue/_delete_form.html.twig') }}
+-{% endblock %}
+Index: templates/dialog/edit.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/dialog/edit.html.twig b/templates/dialog/edit.html.twig
+deleted file mode 100644
+--- a/templates/dialog/edit.html.twig	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,13 +0,0 @@
+-{% extends 'base.html.twig' %}
+-
+-{% block title %}Edit Dialog{% endblock %}
+-
+-{% block body %}
+-    <h1>Edit Dialog</h1>
+-
+-    {{ include('dialog/_form.html.twig', {'button_label': 'Update'}) }}
+-
+-    <a href="{{ path('dialog_index') }}">back to list</a>
+-
+-    {{ include('dialog/_delete_form.html.twig') }}
+-{% endblock %}
+Index: templates/break_scene/edit.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/break_scene/edit.html.twig b/templates/break_scene/edit.html.twig
+deleted file mode 100644
+--- a/templates/break_scene/edit.html.twig	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,13 +0,0 @@
+-{% extends 'base.html.twig' %}
+-
+-{% block title %}Edit BreakScene{% endblock %}
+-
+-{% block body %}
+-    <h1>Edit BreakScene</h1>
+-
+-    {{ include('break_scene/_form.html.twig', {'button_label': 'Update'}) }}
+-
+-    <a href="{{ path('break_scene_index') }}">back to list</a>
+-
+-    {{ include('break_scene/_delete_form.html.twig') }}
+-{% endblock %}
+Index: src/Entity/BreakScene.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Entity/BreakScene.php b/src/Entity/BreakScene.php
+deleted file mode 100644
+--- a/src/Entity/BreakScene.php	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,94 +0,0 @@
+-<?php
+-
+-namespace App\Entity;
+-
+-use App\Repository\BreakSceneRepository;
+-use Doctrine\ORM\Mapping as ORM;
+-
+-/**
+- * @ORM\Entity(repositoryClass=BreakSceneRepository::class)
+- */
+-class BreakScene
+-{
+-    /**
+-     * @ORM\Id
+-     * @ORM\GeneratedValue
+-     * @ORM\Column(type="integer")
+-     */
+-    private $id;
+-
+-    /**
+-     * @ORM\Column(type="string", length=255)
+-     */
+-    private $background;
+-
+-    /**
+-     * @ORM\Column(type="text")
+-     */
+-    private $description;
+-
+-    /**
+-     * @ORM\Column(type="integer")
+-     */
+-    private $sceneN;
+-
+-    /**
+-     * @ORM\ManyToOne(targetEntity=Game::class, inversedBy="breackScene")
+-     * @ORM\JoinColumn(nullable=false)
+-     */
+-    private $game;
+-
+-    public function getId(): ?int
+-    {
+-        return $this->id;
+-    }
+-
+-    public function getBackground(): ?string
+-    {
+-        return $this->background;
+-    }
+-
+-    public function setBackground(string $background): self
+-    {
+-        $this->background = $background;
+-
+-        return $this;
+-    }
+-
+-    public function getDescription(): ?string
+-    {
+-        return $this->description;
+-    }
+-
+-    public function setDescription(string $description): self
+-    {
+-        $this->description = $description;
+-
+-        return $this;
+-    }
+-
+-    public function getSceneN(): ?int
+-    {
+-        return $this->sceneN;
+-    }
+-
+-    public function setSceneN(int $sceneN): self
+-    {
+-        $this->sceneN = $sceneN;
+-
+-        return $this;
+-    }
+-
+-    public function getGame(): ?Game
+-    {
+-        return $this->game;
+-    }
+-
+-    public function setGame(?Game $game): self
+-    {
+-        $this->game = $game;
+-
+-        return $this;
+-    }
+-
+-}
+Index: src/Form/DialogType.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Form/DialogType.php b/src/Form/DialogType.php
+deleted file mode 100644
+--- a/src/Form/DialogType.php	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,31 +0,0 @@
+-<?php
+-
+-namespace App\Form;
+-
+-use App\Entity\Dialog;
+-use Symfony\Component\Form\AbstractType;
+-use Symfony\Component\Form\FormBuilderInterface;
+-use Symfony\Component\OptionsResolver\OptionsResolver;
+-
+-class DialogType extends AbstractType
+-{
+-    public function buildForm(FormBuilderInterface $builder, array $options)
+-    {
+-        $builder
+-            ->add('background')
+-            ->add('name')
+-            ->add('text')
+-            ->add('characterImg')
+-            ->add('description')
+-            ->add('sceneN')
+-            ->add('game', null, ['choice_label' => 'title'])
+-        ;
+-    }
+-
+-    public function configureOptions(OptionsResolver $resolver)
+-    {
+-        $resolver->setDefaults([
+-            'data_class' => Dialog::class,
+-        ]);
+-    }
+-}
+Index: templates/clue/index.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/clue/index.html.twig b/templates/clue/index.html.twig
+deleted file mode 100644
+--- a/templates/clue/index.html.twig	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,47 +0,0 @@
+-{% extends 'base.html.twig' %}
+-
+-{% block title %}Clue index{% endblock %}
+-
+-{% block body %}
+-    <h1>Clue index</h1>
+-
+-    <table class="table">
+-        <thead>
+-            <tr>
+-                <th>Id</th>
+-                <th>Background</th>
+-                <th>XAxis</th>
+-                <th>YAxis</th>
+-                <th>ClueName</th>
+-                <th>ClueImg</th>
+-                <th>Description</th>
+-                <th>SceneN</th>
+-                <th>actions</th>
+-            </tr>
+-        </thead>
+-        <tbody>
+-        {% for clue in clues %}
+-            <tr>
+-                <td>{{ clue.id }}</td>
+-                <td>{{ clue.background }}</td>
+-                <td>{{ clue.xAxis }}</td>
+-                <td>{{ clue.yAxis }}</td>
+-                <td>{{ clue.clueName }}</td>
+-                <td>{{ clue.clueImg }}</td>
+-                <td>{{ clue.description }}</td>
+-                <td>{{ clue.sceneN }}</td>
+-                <td>
+-                    <a href="{{ path('clue_show', {'id': clue.id}) }}">show</a>
+-                    <a href="{{ path('clue_edit', {'id': clue.id}) }}">edit</a>
+-                </td>
+-            </tr>
+-        {% else %}
+-            <tr>
+-                <td colspan="9">no records found</td>
+-            </tr>
+-        {% endfor %}
+-        </tbody>
+-    </table>
+-
+-    <a href="{{ path('clue_new') }}">Create new</a>
+-{% endblock %}
+Index: templates/clue/new.html.twig
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/clue/new.html.twig b/templates/clue/new.html.twig
+deleted file mode 100644
+--- a/templates/clue/new.html.twig	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ /dev/null	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
+@@ -1,11 +0,0 @@
+-{% extends 'base.html.twig' %}
+-
+-{% block title %}New Clue{% endblock %}
+-
+-{% block body %}
+-    <h1>Create new Clue</h1>
+-
+-    {{ include('clue/_form.html.twig') }}
+-
+-    <a href="{{ path('clue_index') }}">back to list</a>
+-{% endblock %}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"1110ae7a-642f-4ad1-81c7-e8b3c36d2c5e\" name=\"Default Changelist\" comment=\"\">\n      <change beforePath=\"$PROJECT_DIR$/assets/styles/app.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/assets/styles/app.css\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/composer.json\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/composer.json\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/composer.lock\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/composer.lock\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/templates/base.html.twig\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/templates/base.html.twig\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/webpack.config.js\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/webpack.config.js\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"ComposerSettings\" synchronizationState=\"SYNCHRONIZE\">\n    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>\n    <execution />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"composer.json\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"PhpWorkspaceProjectConfiguration\">\n    <include_path>\n      <path value=\"$PROJECT_DIR$/vendor/twig/twig\" />\n      <path value=\"$PROJECT_DIR$/vendor/twig/extra-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-guard\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/deprecation-contracts\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dependency-injection\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mime\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/validator\" />\n      <path value=\"$PROJECT_DIR$/vendor/monolog/monolog\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/browser-kit\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php80\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/orm\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dom-crawler\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client-contracts\" />\n      <path value=\"$PROJECT_DIR$/vendor/nikic/php-parser\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/css-selector\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-access\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/monolog-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher-contracts\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/options-resolver\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/doctrine-bridge\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/yaml\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-php73\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-kernel\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/mailer\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/dbal\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/finder\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-csrf\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/expression-language\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/maker-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-core\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/security-http\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-link\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-exporter\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/web-profiler-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/string\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/sql-formatter\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/service-contracts\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/serializer\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/debug-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/routing\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/event-dispatcher\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/phpunit-bridge\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/error-handler\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/flex\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/notifier\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/cache-contracts\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/property-info\" />\n      <path value=\"$PROJECT_DIR$/vendor/webmozart/assert\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/console\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/framework-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/ocramius/proxy-manager\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/process\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/var-dumper\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-intl-normalizer\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/intl\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/filesystem\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/twig-bridge\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-client\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/dotenv\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/form\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-mbstring\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/monolog-bridge\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/asset\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/config\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/http-foundation\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/translation-contracts\" />\n      <path value=\"$PROJECT_DIR$/vendor/symfony/stopwatch\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/migrations\" />\n      <path value=\"$PROJECT_DIR$/vendor/psr/container\" />\n      <path value=\"$PROJECT_DIR$/vendor/psr/cache\" />\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock\" />\n      <path value=\"$PROJECT_DIR$/vendor/psr/event-dispatcher\" />\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/type-resolver\" />\n      <path value=\"$PROJECT_DIR$/vendor/psr/log\" />\n      <path value=\"$PROJECT_DIR$/vendor/phpdocumentor/reflection-common\" />\n      <path value=\"$PROJECT_DIR$/vendor/psr/link\" />\n      <path value=\"$PROJECT_DIR$/vendor/egulias/email-validator\" />\n      <path value=\"$PROJECT_DIR$/vendor/zendframework/zend-code\" />\n      <path value=\"$PROJECT_DIR$/vendor/zendframework/zend-eventmanager\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/cache\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/event-manager\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/annotations\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/lexer\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/common\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/collections\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/instantiator\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/persistence\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/inflector\" />\n      <path value=\"$PROJECT_DIR$/vendor/sensio/framework-extra-bundle\" />\n      <path value=\"$PROJECT_DIR$/vendor/doctrine/doctrine-migrations-bundle\" />\n    </include_path>\n  </component>\n  <component name=\"ProjectId\" id=\"1lTVuOeBcq1RVZi7tNVlxnoSDNe\" />\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">\n    <property name=\"DatabaseDriversLRU\" value=\"mysql\" />\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/src/Repository\" />\n    <property name=\"nodejs_package_manager_path\" value=\"yarn\" />\n    <property name=\"run.code.analysis.last.selected.profile\" value=\"pProject Default\" />\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\n  </component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src/Repository\" />\n    </key>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"1110ae7a-642f-4ad1-81c7-e8b3c36d2c5e\" name=\"Default Changelist\" comment=\"\" />\n      <created>1607621292583</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1607621292583</updated>\n      <workItem from=\"1607621294486\" duration=\"9429000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision bc0f871e73ee847c3375c1abea562474eb915f3d)
++++ b/.idea/workspace.xml	(date 1607797518034)
+@@ -2,11 +2,36 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="1110ae7a-642f-4ad1-81c7-e8b3c36d2c5e" name="Default Changelist" comment="">
+-      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Controller/BreakSceneController.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Controller/ClueController.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Controller/DialogController.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Entity/BreakScene.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Entity/Clue.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Entity/Dialog.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Form/BreakSceneType.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Form/ClueType.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Form/DialogType.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Repository/BreakSceneRepository.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Repository/ClueRepository.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Repository/DialogRepository.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/break_scene/_delete_form.html.twig" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/break_scene/_form.html.twig" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/break_scene/edit.html.twig" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/break_scene/index.html.twig" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/break_scene/new.html.twig" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/break_scene/show.html.twig" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/clue/_delete_form.html.twig" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/clue/_form.html.twig" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/clue/edit.html.twig" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/clue/index.html.twig" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/clue/new.html.twig" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/clue/show.html.twig" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/dialog/_delete_form.html.twig" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/dialog/_form.html.twig" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/dialog/edit.html.twig" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/dialog/index.html.twig" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/dialog/new.html.twig" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/dialog/show.html.twig" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -132,6 +157,9 @@
+     </include_path>
+   </component>
+   <component name="ProjectId" id="1lTVuOeBcq1RVZi7tNVlxnoSDNe" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <ConfirmationsSetting value="1" id="Add" />
++  </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+@@ -151,6 +179,12 @@
+       <recent name="$PROJECT_DIR$/src/Repository" />
+     </key>
+   </component>
++  <component name="RunManager">
++    <configuration default="true" type="ComposerRunConfigurationType" factoryName="Composer Script">
++      <option name="pathToComposerJson" value="$PROJECT_DIR$/composer.json" />
++      <method v="2" />
++    </configuration>
++  </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -166,4 +200,7 @@
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="oldMeFiltersMigrated" value="true" />
++  </component>
+ </project>
+\ No newline at end of file
