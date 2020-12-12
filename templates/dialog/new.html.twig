@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Dialog{% endblock %}
+
+{% block body %}
+    <h1>Create new Dialog</h1>
+
+    {{ include('dialog/_form.html.twig') }}
+
+    <a href="{{ path('dialog_index') }}">back to list</a>
+{% endblock %}
