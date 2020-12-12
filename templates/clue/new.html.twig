@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Clue{% endblock %}
+
+{% block body %}
+    <h1>Create new Clue</h1>
+
+    {{ include('clue/_form.html.twig') }}
+
+    <a href="{{ path('clue_index') }}">back to list</a>
+{% endblock %}

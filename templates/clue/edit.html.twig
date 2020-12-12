@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Clue{% endblock %}
+
+{% block body %}
+    <h1>Edit Clue</h1>
+
+    {{ include('clue/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('clue_index') }}">back to list</a>
+
+    {{ include('clue/_delete_form.html.twig') }}
+{% endblock %}
