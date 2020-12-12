@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\GameRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,6 +48,16 @@ class Game
      * @ORM\Column(type="boolean")
      */
     private $isPublished;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Scene::class, mappedBy="game", orphanRemoval=true)
+     */
+    private $scenes;
+
+    public function __construct()
+    {
+        $this->scenes = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -120,6 +132,36 @@ class Game
     public function setIsPublished(bool $isPublished): self
     {
         $this->isPublished = $isPublished;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Scene[]
+     */
+    public function getScenes(): Collection
+    {
+        return $this->scenes;
+    }
+
+    public function addScene(Scene $scene): self
+    {
+        if (!$this->scenes->contains($scene)) {
+            $this->scenes[] = $scene;
+            $scene->setGame($this);
+        }
+
+        return $this;
+    }
+
+    public function removeScene(Scene $scene): self
+    {
+        if ($this->scenes->removeElement($scene)) {
+            // set the owning side to null (unless already changed)
+            if ($scene->getGame() === $this) {
+                $scene->setGame(null);
+            }
+        }
 
         return $this;
     }

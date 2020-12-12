@@ -42,6 +42,12 @@ class Scene
      */
     private $investigation;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Game::class, inversedBy="scenes")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $game;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +109,18 @@ class Scene
     public function setInvestigation(?int $investigation): self
     {
         $this->investigation = $investigation;
+
+        return $this;
+    }
+
+    public function getGame(): ?Game
+    {
+        return $this->game;
+    }
+
+    public function setGame(?Game $game): self
+    {
+        $this->game = $game;
 
         return $this;
     }
