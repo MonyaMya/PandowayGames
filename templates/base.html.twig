@@ -7,8 +7,15 @@
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
+    <header>
+        {% block header %}
+        {% endblock %}
+    </header>
     <body>
-        {% block body %}{% endblock %}
+        {% block body %}
+            {% block navbar %}{% endblock %}
+            {% block content %}{% endblock %}
+        {% endblock %}
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
