@@ -17,7 +17,7 @@ class SceneType extends AbstractType
             ->add('previousScene')
             ->add('dialog')
             ->add('investigation')
-            ->add('game')
+            ->add('game', null, ['choice_label' => 'title'])
         ;
     }
 

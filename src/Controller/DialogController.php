@@ -25,28 +25,7 @@ class DialogController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/new", name="dialog_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
-    {
-        $dialog = new Dialog();
-        $form = $this->createForm(DialogType::class, $dialog);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($dialog);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('dialog_index');
-        }
-
-        return $this->render('dialog/new.html.twig', [
-            'dialog' => $dialog,
-            'form' => $form->createView(),
-        ]);
-    }
 
     /**
      * @Route("/{id}", name="dialog_show", methods={"GET"})

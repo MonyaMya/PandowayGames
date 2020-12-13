@@ -2,18 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d1618db-6873-47f7-acd8-6eb67a5c3673" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/GameEditor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GameEditor.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201212194552.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201212215745.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201212222609.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Scene.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Scene.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/_navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/_navbar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ClueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ClueController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/DialogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DialogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SceneController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SceneController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/SceneType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SceneType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/clue/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/clue/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dialog/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dialog/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/scene/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/scene/new.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +172,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607810587031</updated>
       <workItem from="1607810588094" duration="576000" />
-      <workItem from="1607880744622" duration="2436000" />
+      <workItem from="1607880744622" duration="5245000" />
     </task>
     <servers />
   </component>

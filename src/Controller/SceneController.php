@@ -2,7 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Clue;
+use App\Entity\Dialog;
 use App\Entity\Scene;
+use App\Form\ClueType;
+use App\Form\DialogType;
 use App\Form\SceneType;
 use App\Repository\SceneRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -30,6 +34,37 @@ class SceneController extends AbstractController
      */
     public function new(Request $request): Response
     {
+
+        /* -- CLUE FORM --*/
+
+        $clue = new Clue();
+        $clueForm = $this->createForm(ClueType::class, $clue);
+        $clueForm->handleRequest($request);
+
+        if ($clueForm->isSubmitted() && $clueForm->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($clue);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('clue_index');
+        }
+
+        /* -- DIALOG FORM --*/
+
+        $dialog = new Dialog();
+        $dialogForm = $this->createForm(DialogType::class, $dialog);
+        $dialogForm->handleRequest($request);
+
+        if ($dialogForm->isSubmitted() && $dialogForm->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($dialog);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('dialog_index');
+        }
+
+        /* -- SCENE FORM --*/
+
         $scene = new Scene();
         $form = $this->createForm(SceneType::class, $scene);
         $form->handleRequest($request);
@@ -43,6 +78,10 @@ class SceneController extends AbstractController
         }
 
         return $this->render('scene/new.html.twig', [
+            'dialog' => $dialog,
+            'dialogForm' => $dialogForm->createView(),
+            'clue' => $clue,
+            'clueForm' => $clueForm->createView(),
             'scene' => $scene,
             'form' => $form->createView(),
         ]);
