@@ -25,7 +25,6 @@ class ClueController extends AbstractController
         ]);
     }
 
-
     /**
      * @Route("/{id}", name="clue_show", methods={"GET"})
      */
@@ -33,26 +32,6 @@ class ClueController extends AbstractController
     {
         return $this->render('clue/show.html.twig', [
             'clue' => $clue,
-        ]);
-    }
-
-    /**
-     * @Route("/{id}/edit", name="clue_edit", methods={"GET","POST"})
-     */
-    public function edit(Request $request, Clue $clue): Response
-    {
-        $form = $this->createForm(ClueType::class, $clue);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('clue_index');
-        }
-
-        return $this->render('clue/edit.html.twig', [
-            'clue' => $clue,
-            'form' => $form->createView(),
         ]);
     }
 

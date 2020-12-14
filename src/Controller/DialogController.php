@@ -26,7 +26,6 @@ class DialogController extends AbstractController
     }
 
 
-
     /**
      * @Route("/{id}", name="dialog_show", methods={"GET"})
      */
@@ -34,26 +33,6 @@ class DialogController extends AbstractController
     {
         return $this->render('dialog/show.html.twig', [
             'dialog' => $dialog,
-        ]);
-    }
-
-    /**
-     * @Route("/{id}/edit", name="dialog_edit", methods={"GET","POST"})
-     */
-    public function edit(Request $request, Dialog $dialog): Response
-    {
-        $form = $this->createForm(DialogType::class, $dialog);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('dialog_index');
-        }
-
-        return $this->render('dialog/edit.html.twig', [
-            'dialog' => $dialog,
-            'form' => $form->createView(),
         ]);
     }
 

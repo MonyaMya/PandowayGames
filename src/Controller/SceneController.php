@@ -66,10 +66,10 @@ class SceneController extends AbstractController
         /* -- SCENE FORM --*/
 
         $scene = new Scene();
-        $form = $this->createForm(SceneType::class, $scene);
-        $form->handleRequest($request);
+        $sceneForm = $this->createForm(SceneType::class, $scene);
+        $sceneForm->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($sceneForm->isSubmitted() && $sceneForm->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($scene);
             $entityManager->flush();
@@ -83,7 +83,7 @@ class SceneController extends AbstractController
             'clue' => $clue,
             'clueForm' => $clueForm->createView(),
             'scene' => $scene,
-            'form' => $form->createView(),
+            'sceneForm' => $sceneForm->createView(),
         ]);
     }
 
@@ -102,10 +102,11 @@ class SceneController extends AbstractController
      */
     public function edit(Request $request, Scene $scene): Response
     {
-        $form = $this->createForm(SceneType::class, $scene);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        $sceneForm = $this->createForm(SceneType::class, $scene);
+        $sceneForm->handleRequest($request);
+
+        if ($sceneForm->isSubmitted() && $sceneForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('scene_index');
@@ -113,7 +114,7 @@ class SceneController extends AbstractController
 
         return $this->render('scene/edit.html.twig', [
             'scene' => $scene,
-            'form' => $form->createView(),
+            'sceneForm' => $sceneForm->createView(),
         ]);
     }
 
