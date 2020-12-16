@@ -16,10 +16,10 @@
         {% endblock %}
     </header>
     <body>
-        {% block body %}
-            {% block navbar %}{% endblock %}
-            {% block content %}{% endblock %}
-        {% endblock %}
+        <div class="container-fluid home-wrapper">
+            {% block body %}
+            {% endblock %}
+        </div>
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
