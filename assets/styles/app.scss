@@ -38,3 +38,8 @@ body {
     transition: $glow_transition;
   }
 }
+
+.container-fluid, .home-wrapper{
+  width: 80%;
+  margin-top: 50px;
+}
