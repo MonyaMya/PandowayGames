@@ -6,6 +6,7 @@ use App\Entity\Game;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class GameType extends AbstractType
 {
@@ -13,11 +14,11 @@ class GameType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('poster')
             ->add('mainColor')
             ->add('secondaryColor')
             ->add('description')
             ->add('isPublished')
+            ->add('imageFile', VichImageType::class)
         ;
     }
 
