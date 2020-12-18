@@ -6,6 +6,7 @@ use App\Entity\Scene;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class SceneType extends AbstractType
 {
@@ -18,6 +19,7 @@ class SceneType extends AbstractType
             ->add('dialog')
             ->add('investigation')
             ->add('game', null, ['choice_label' => 'title'])
+            ->add('imageFile', VichImageType::class)
         ;
     }
 

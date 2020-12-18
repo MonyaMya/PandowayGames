@@ -3,12 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="6d1618db-6873-47f7-acd8-6eb67a5c3673" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Game.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Game.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/GameType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/GameType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/game/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/game/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/vich_uploader.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Clue.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Clue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Dialog.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Dialog.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Scene.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Scene.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/ClueType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/ClueType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/DialogType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/DialogType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/SceneType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SceneType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
