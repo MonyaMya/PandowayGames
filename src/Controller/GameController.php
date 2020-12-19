@@ -9,30 +9,50 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 /**
  * @Route("/game")
  */
 class GameController extends AbstractController
 {
+
     /**
      * @Route("/", name="game_index", methods={"GET"})
      */
     public function index(GameRepository $gameRepository): Response
     {
-        return $this->render('game/index.html.twig', [
+        return $this->render('game/mygames.html.twig', [
             'games' => $gameRepository->findAll(),
+        ]);
+    }
+
+    /**
+     * @Route("/mygames", name="mygames", methods={"GET"})
+     * @IsGranted("ROLE_USER")
+     */
+    public function myGames(UserInterface $user, GameRepository $gameRepository): Response
+    {
+        $author = $user->getEmail();
+        $games = $this->getDoctrine()->getRepository(Game::class)
+            ->findBy(['author'=> $author]);
+        return $this->render('game/mygames.html.twig', [
+            'mygames' => $games,
         ]);
     }
 
     /**
      * @Route("/new", name="game_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(UserInterface $user, Request $request): Response
     {
         $game = new Game();
         $form = $this->createForm(GameType::class, $game);
         $form->handleRequest($request);
+        $author = $user->getEmail();
+        $game->setAuthor($author);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -45,6 +65,7 @@ class GameController extends AbstractController
         return $this->render('game/new.html.twig', [
             'game' => $game,
             'form' => $form->createView(),
+
         ]);
     }
 
