@@ -105,6 +105,15 @@
     "jms/metadata": {
         "version": "2.4.0"
     },
+    "laminas/laminas-code": {
+        "version": "3.5.1"
+    },
+    "laminas/laminas-eventmanager": {
+        "version": "3.3.0"
+    },
+    "laminas/laminas-zendframework-bridge": {
+        "version": "1.1.1"
+    },
     "monolog/monolog": {
         "version": "2.1.1"
     },

@@ -34,7 +34,7 @@ class GameController extends AbstractController
      * @Route("/mygames", name="mygames", methods={"GET"})
      * @IsGranted("ROLE_USER")
      */
-    public function myGames(UserInterface $user, GameRepository $gameRepository): Response
+    public function myGames(?UserInterface $user, GameRepository $gameRepository): Response
     {
         $author = $user->getEmail();
         $games = $this->getDoctrine()->getRepository(Game::class)
@@ -47,7 +47,7 @@ class GameController extends AbstractController
     /**
      * @Route("/new", name="game_new", methods={"GET","POST"})
      */
-    public function new(UserInterface $user, Request $request): Response
+    public function new(?UserInterface $user, Request $request): Response
     {
         $game = new Game();
         $form = $this->createForm(GameType::class, $game);
