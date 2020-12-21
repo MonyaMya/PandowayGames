@@ -5,6 +5,8 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 
+import {DragAndDrop} from "./drag_and_drop";
+
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
 

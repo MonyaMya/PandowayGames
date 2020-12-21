@@ -24,16 +24,16 @@
         {% for mygame in mygames %}
             <tr>
                 <td>{{ mygame.id }}</td>
-                <td>{{ mygames.title }}</td>
-                <td>{{ mygames.imageFile }}</td>
-                <td>{{ mygames.mainColor }}</td>
-                <td>{{ mygames.secondaryColor }}</td>
-                <td>{{ mygames.description }}</td>
-                <td>{{ mygames.author }}</td>
-                <td>{{ mygames.isPublished ? 'Yes' : 'No' }}</td>
+                <td>{{ mygame.title }}</td>
+                <td>{{ mygame.imageFile }}</td>
+                <td>{{ mygame.mainColor }}</td>
+                <td>{{ mygame.secondaryColor }}</td>
+                <td>{{ mygame.description }}</td>
+                <td>{{ mygame.author }}</td>
+                <td>{{ mygame.isPublished ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('game_show', {'id': mygames.id}) }}">show</a>
-                    <a href="{{ path('game_edit', {'id': mygames.id}) }}">edit</a>
+                    <a href="{{ path('game_show', {'id': mygame.id}) }}">show</a>
+                    <a href="{{ path('game_edit', {'id': mygame.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
