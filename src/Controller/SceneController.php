@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Clue;
 use App\Entity\Dialog;
+use App\Entity\Game;
 use App\Entity\Scene;
 use App\Form\ClueType;
 use App\Form\DialogType;
@@ -25,14 +26,14 @@ class SceneController extends AbstractController
     public function index(SceneRepository $sceneRepository): Response
     {
         return $this->render('scene/index.html.twig', [
-            'scenes' => $sceneRepository->findAll(),
+            'scenes' => $sceneRepository->findBy([], ['position' => 'ASC']),
         ]);
     }
 
     /**
      * @Route("/new", name="scene_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, SceneRepository $sceneRepository): Response
     {
 
         /* -- CLUE FORM --*/
@@ -70,6 +71,8 @@ class SceneController extends AbstractController
         $sceneForm->handleRequest($request);
 
         if ($sceneForm->isSubmitted() && $sceneForm->isValid()) {
+            $scenePosition = $sceneRepository->findNextPosition($scene->getGame());
+            $scene->setPosition($scenePosition);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($scene);
             $entityManager->flush();

@@ -62,6 +62,11 @@ class Scene
      * @ORM\JoinColumn(nullable=false)
      */
     private $game;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $position;
     public function getId(): ?int
     {
         return $this->id;
@@ -158,6 +163,18 @@ class Scene
     public function setGame(?Game $game): self
     {
         $this->game = $game;
+        return $this;
+    }
+
+    public function getPosition(): ?int
+    {
+        return $this->position;
+    }
+
+    public function setPosition(int $position): self
+    {
+        $this->position = $position;
+
         return $this;
     }
 }

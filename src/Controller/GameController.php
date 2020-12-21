@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Game;
+use App\Entity\Scene;
 use App\Form\GameType;
 use App\Repository\GameRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -30,6 +32,7 @@ class GameController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/mygames", name="mygames", methods={"GET"})
      * @IsGranted("ROLE_USER")
@@ -42,6 +45,14 @@ class GameController extends AbstractController
         return $this->render('game/mygames.html.twig', [
             'mygames' => $games,
         ]);
+    }
+
+    /**
+     * @Route("/mygames/move/{id}/{newPosition}", name="move", methods={"GET"})
+     */
+    public function move (Scene $scene, int $newPosition): ?JsonResponse
+    {
+        return null;
     }
 
     /**
