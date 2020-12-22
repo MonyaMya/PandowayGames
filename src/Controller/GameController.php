@@ -6,6 +6,9 @@ use App\Entity\Game;
 use App\Entity\Scene;
 use App\Form\GameType;
 use App\Repository\GameRepository;
+use App\Repository\SceneRepository;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -48,11 +51,45 @@ class GameController extends AbstractController
     }
 
     /**
-     * @Route("/mygames/move/{id}/{newPosition}", name="move", methods={"GET"})
+     * @Route("/mygames/move/{id}/{targetSceneId}", name="move", methods={"GET"})
+     * @param Scene $scene
+     * @param SceneRepository $sceneRepository
+     * @param $entityManager
+     * @return JsonResponse|null
      */
-    public function move (Scene $scene, int $newPosition): ?JsonResponse
+    public function move (Scene $scene, int $targetSceneId, SceneRepository $sceneRepository, EntityManagerInterface $entityManager): ?JsonResponse
     {
-        return null;
+
+        $targetScene = $sceneRepository->findOneBy(["id" => $targetSceneId]);
+
+        $startPosition = $scene->getPosition();
+
+
+        if ($startPosition < $targetScene->getPosition() - 1) {
+            $endPosition = $targetScene->getPosition() - 1;
+        } else {
+            $endPosition = $targetScene->getPosition();
+        }
+
+        $moveScenes = $sceneRepository->findBetweenPositions($startPosition, $endPosition);
+        foreach ($moveScenes as $moveScene) {
+
+            if ($startPosition < $endPosition) {
+                $moveScene->setPosition($moveScene->getPosition() - 1);
+            } else {
+                $moveScene->setPosition($moveScene->getPosition() + 1);
+            }
+
+            $entityManager->persist($moveScene);
+        }
+
+        $scene->setPosition($endPosition);
+
+
+        $entityManager->persist($scene);
+        $entityManager->flush();
+
+        return new JsonResponse(json_encode("ok"));
     }
 
     /**

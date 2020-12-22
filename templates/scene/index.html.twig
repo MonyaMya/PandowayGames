@@ -17,9 +17,10 @@
                 <th>actions</th>
             </tr>
         </thead>
-        <tbody>
+
+        <tbody class="dragContainer">
         {% for scene in scenes %}
-            <tr>
+            <tr class="draggable ma" draggable="true" position="{{ scene.id }}">
                 <td>{{ scene.id }}</td>
                 <td>{{ scene.background }}</td>
                 <td>{{ scene.description }}</td>

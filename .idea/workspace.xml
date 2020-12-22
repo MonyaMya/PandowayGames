@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d1618db-6873-47f7-acd8-6eb67a5c3673" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/drag_and_drop.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/drag_and_drop.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/GameController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/GameController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/SceneRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/SceneRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/clue/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/clue/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dialog/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dialog/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/game/mygames.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/mygames.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/scene/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/scene/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/scene/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/scene/new.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +181,11 @@
       <workItem from="1607880744622" duration="10893000" />
       <workItem from="1608482575550" duration="7204000" />
       <workItem from="1608535918607" duration="1337000" />
-      <workItem from="1608544108714" duration="672000" />
+      <workItem from="1608544108714" duration="4694000" />
+      <workItem from="1608552702940" duration="4567000" />
+      <workItem from="1608557712381" duration="299000" />
+      <workItem from="1608558468117" duration="5537000" />
+      <workItem from="1608641366888" duration="1087000" />
     </task>
     <servers />
   </component>
