@@ -21,12 +21,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class SceneController extends AbstractController
 {
     /**
-     * @Route("/", name="scene_index", methods={"GET"})
+     * @Route("/{id}", name="scene_index", methods={"GET"})
      */
-    public function index(SceneRepository $sceneRepository): Response
+    public function index(Game $game, SceneRepository $sceneRepository): Response
     {
         return $this->render('scene/index.html.twig', [
-            'scenes' => $sceneRepository->findBy([], ['position' => 'ASC']),
+            'scenes' => $sceneRepository->findBy(['game'=>$game], ['position' => 'ASC']),
+            'game' => $game,
         ]);
     }
 
@@ -78,7 +79,7 @@ class SceneController extends AbstractController
             $entityManager->persist($scene);
             $entityManager->flush();
 
-            return $this->redirectToRoute('scene_index');
+            return $this->redirectToRoute('scene_index',['id' => $game->getId()]);
         }
 
         return $this->render('scene/new.html.twig', [
