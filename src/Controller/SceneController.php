@@ -31,9 +31,9 @@ class SceneController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="scene_new", methods={"GET","POST"})
+     * @Route("/new/{id}", name="scene_new", methods={"GET","POST"})
      */
-    public function new(Request $request, SceneRepository $sceneRepository): Response
+    public function new(Game $game, Request $request, SceneRepository $sceneRepository): Response
     {
 
         /* -- CLUE FORM --*/
@@ -67,6 +67,7 @@ class SceneController extends AbstractController
         /* -- SCENE FORM --*/
 
         $scene = new Scene();
+        $scene->setGame($game);
         $sceneForm = $this->createForm(SceneType::class, $scene);
         $sceneForm->handleRequest($request);
 
