@@ -29,6 +29,12 @@
                     credentials: 'include'
                 }
             )
+                .then(response => response.json())
+                .then(data => {
+                    if(data.result != "ok") {
+                        alert("Your modifications have not been saved. Make sure your internet connection is working and refresh the page.");
+                    }
+                });
         })
     })
 
