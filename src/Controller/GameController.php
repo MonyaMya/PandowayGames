@@ -87,7 +87,7 @@ class GameController extends AbstractController
             $endPosition--;
         }
 
-        $movingScenes = $sceneRepository->findBetweenPositions($startPosition, $endPosition);
+        $movingScenes = $sceneRepository->findBetweenPositions($scene->getGame(), $startPosition, $endPosition);
         foreach ($movingScenes as $movingScene) {
             if ($startPosition < $endPosition) {
                 //if the scene is dragged to the right, every other scenes on the way are moved left

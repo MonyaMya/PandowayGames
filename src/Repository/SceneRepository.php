@@ -63,7 +63,7 @@ class SceneRepository extends ServiceEntityRepository
        return $gameScene[0]->getPosition()+1;
     }
 
-    public function findBetweenPositions(int $startPosition, int $endPosition) {
+    public function findBetweenPositions(Game $game, int $startPosition, int $endPosition) {
 
         if ($startPosition > $endPosition) {
             $buffer = $startPosition;
@@ -76,6 +76,8 @@ class SceneRepository extends ServiceEntityRepository
             ->setParameter('startPosition', $startPosition)
             ->andWhere('s.position <= :endPosition')
             ->setParameter('endPosition', $endPosition)
+            ->andWhere('s.game = :game')
+            ->setParameter('game', $game)
             ->orderBy('s.id', 'ASC')
             ->getQuery()
             ->getResult()
