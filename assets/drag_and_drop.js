@@ -29,6 +29,8 @@
             console.log(afterElement)
             const draggable = document.querySelector('.dragging')
             if (afterElement == null) {
+                //we give an id that cannot be found
+                position = -1;
                 dragContainer.appendChild(draggable)
             } else {
                 position = afterElement.getAttribute("position");

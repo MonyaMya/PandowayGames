@@ -51,7 +51,7 @@ class GameController extends AbstractController
     }
 
     /**
-     * @Route("/mygames/move/{id}/{targetScene}", name="move", methods={"GET"})
+     * @Route("/mygames/move/{id}/{targetScene}", name="move", methods={"POST"})
      * @param Scene $scene : the scene that has been dragged and dropped
      * @param Scene $targetScene : the scene after the dragged scene once it has been dropped
      *                             when we moved to the right, the dragged scene position is the targetScene position-1 and target scene doesn't move
@@ -60,12 +60,20 @@ class GameController extends AbstractController
      * @param $entityManager
      * @return JsonResponse|null
      */
-    public function move (Scene $scene, Scene $targetScene, SceneRepository $sceneRepository, EntityManagerInterface $entityManager): ?JsonResponse
+    public function move (Scene $scene, ?Scene $targetScene, SceneRepository $sceneRepository, EntityManagerInterface $entityManager): ?JsonResponse
     {
         $startPosition = $scene->getPosition();
-        $endPosition = $targetScene->getPosition();
+
+        //use the final position by default
+        $finalScene = $sceneRepository->findOneBy([],['position'=>'DESC']);
+        $endPosition = $finalScene->getPosition() + 1;
+        //in cas a target position scene is given
+        if ($targetScene!=null) {
+            $endPosition = $targetScene->getPosition();
+        }
+        //in cas we move right, we do not take the position of the target but the position just on the left
         if ($startPosition < $endPosition) {
-            $endPosition = $targetScene->getPosition() - 1;
+            $endPosition--;
         }
 
         $movingScenes = $sceneRepository->findBetweenPositions($startPosition, $endPosition);
