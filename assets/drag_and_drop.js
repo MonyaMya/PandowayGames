@@ -17,7 +17,18 @@
         draggable.addEventListener('dragend', () => {
             console.log("dragend " + draggable.getAttribute("position") + " " + position)
             draggable.classList.remove('dragging')
-            fetch("/game/mygames/move/" + draggable.getAttribute("position") + "/" + position)
+            fetch(
+                "/game/mygames/move/" + draggable.getAttribute("position") + "/" + position,
+                {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                        "X-Requested-With": "XMLHttpRequest"
+                    },
+                    body: 'token=' + document.getElementById('token').getAttribute('data-token'),
+                    credentials: 'include'
+                }
+            )
         })
     })
 

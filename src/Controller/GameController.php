@@ -60,8 +60,19 @@ class GameController extends AbstractController
      * @param $entityManager
      * @return JsonResponse|null
      */
-    public function move (Scene $scene, ?Scene $targetScene, SceneRepository $sceneRepository, EntityManagerInterface $entityManager): ?JsonResponse
-    {
+    public function move (
+        Scene $scene,
+        ?Scene $targetScene,
+        SceneRepository $sceneRepository,
+        EntityManagerInterface $entityManager,
+        Request $request
+    ): ?JsonResponse {
+        //check CSRF token to prevent XSSF attack
+        $token = $request->request->get('token');
+        if (!$this->isCsrfTokenValid('my_intention', $token)) {
+            return new JsonResponse(['result' => "invalid csrf token"]);
+        }
+
         $startPosition = $scene->getPosition();
 
         //use the final position by default
@@ -95,7 +106,7 @@ class GameController extends AbstractController
 
         $entityManager->flush();
 
-        return new JsonResponse(json_encode("ok"));
+        return new JsonResponse(['result' => "ok"]);
     }
 
     /**
