@@ -51,17 +51,14 @@ class GameController extends AbstractController
     }
 
     /**
-     * @Route("/mygames/move/{id}/{targetSceneId}", name="move", methods={"GET"})
+     * @Route("/mygames/move/{id}/{targetScene}", name="move", methods={"GET"})
      * @param Scene $scene
      * @param SceneRepository $sceneRepository
      * @param $entityManager
      * @return JsonResponse|null
      */
-    public function move (Scene $scene, int $targetSceneId, SceneRepository $sceneRepository, EntityManagerInterface $entityManager): ?JsonResponse
+    public function move (Scene $scene, Scene $targetScene, SceneRepository $sceneRepository, EntityManagerInterface $entityManager): ?JsonResponse
     {
-
-        $targetScene = $sceneRepository->findOneBy(["id" => $targetSceneId]);
-
         $startPosition = $scene->getPosition();
 
 
