@@ -52,7 +52,10 @@ class GameController extends AbstractController
 
     /**
      * @Route("/mygames/move/{id}/{targetScene}", name="move", methods={"GET"})
-     * @param Scene $scene
+     * @param Scene $scene : the scene that has been dragged and dropped
+     * @param Scene $targetScene : the scene after the dragged scene once it has been dropped
+     *                             when we moved to the right, the dragged scene position is the targetScene position-1 and target scene doesn't move
+     *                             but when we move to the left, the dragged scene take the targetScene position and the target scene is shifted
      * @param SceneRepository $sceneRepository
      * @param $entityManager
      * @return JsonResponse|null
@@ -60,30 +63,28 @@ class GameController extends AbstractController
     public function move (Scene $scene, Scene $targetScene, SceneRepository $sceneRepository, EntityManagerInterface $entityManager): ?JsonResponse
     {
         $startPosition = $scene->getPosition();
-
-
-        if ($startPosition < $targetScene->getPosition() - 1) {
+        $endPosition = $targetScene->getPosition();
+        if ($startPosition < $endPosition) {
             $endPosition = $targetScene->getPosition() - 1;
-        } else {
-            $endPosition = $targetScene->getPosition();
         }
 
-        $moveScenes = $sceneRepository->findBetweenPositions($startPosition, $endPosition);
-        foreach ($moveScenes as $moveScene) {
-
+        $movingScenes = $sceneRepository->findBetweenPositions($startPosition, $endPosition);
+        foreach ($movingScenes as $movingScene) {
             if ($startPosition < $endPosition) {
-                $moveScene->setPosition($moveScene->getPosition() - 1);
+                //if the scene is dragged to the right, every other scenes on the way are moved left
+                $movingScene->setPosition($movingScene->getPosition() - 1);
             } else {
-                $moveScene->setPosition($moveScene->getPosition() + 1);
+                //if the scene is dragged to the left, every other scenes on the way are moved right
+                $movingScene->setPosition($movingScene->getPosition() + 1);
             }
 
-            $entityManager->persist($moveScene);
+            $entityManager->persist($movingScene);
         }
 
+        //put the moved scene as its end position
         $scene->setPosition($endPosition);
-
-
         $entityManager->persist($scene);
+
         $entityManager->flush();
 
         return new JsonResponse(json_encode("ok"));
