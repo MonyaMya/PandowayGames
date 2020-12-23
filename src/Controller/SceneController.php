@@ -21,7 +21,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SceneController extends AbstractController
 {
     /**
-     * @Route("/{id}", name="scene_index", methods={"GET"})
+     * @Route("/game/{id}", name="scene_index", methods={"GET"})
      */
     public function index(Game $game, SceneRepository $sceneRepository): Response
     {
@@ -32,7 +32,7 @@ class SceneController extends AbstractController
     }
 
     /**
-     * @Route("/new/{id}", name="scene_new", methods={"GET","POST"})
+     * @Route("/new/game/{id}", name="scene_new", methods={"GET","POST"})
      */
     public function new(Game $game, Request $request, SceneRepository $sceneRepository): Response
     {
