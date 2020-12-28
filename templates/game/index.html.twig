@@ -4,7 +4,6 @@
 
 {% block body %}
     <h1>Game index</h1>
-
     <table class="table">
         <thead>
             <tr>
@@ -14,6 +13,7 @@
                 <th>MainColor</th>
                 <th>SecondaryColor</th>
                 <th>Description</th>
+                <th>Author</th>
                 <th>IsPublished</th>
                 <th>actions</th>
             </tr>
@@ -23,10 +23,11 @@
             <tr>
                 <td>{{ game.id }}</td>
                 <td>{{ game.title }}</td>
-                <td>{{ game.poster }}</td>
+                <td>{{ game.imageFile }}</td>
                 <td>{{ game.mainColor }}</td>
                 <td>{{ game.secondaryColor }}</td>
                 <td>{{ game.description }}</td>
+                <td>{{ game.author }}</td>
                 <td>{{ game.isPublished ? 'Yes' : 'No' }}</td>
                 <td>
                     <a href="{{ path('game_show', {'id': game.id}) }}">show</a>

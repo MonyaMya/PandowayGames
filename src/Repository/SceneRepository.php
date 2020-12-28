@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Game;
 use App\Entity\Scene;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -47,4 +48,39 @@ class SceneRepository extends ServiceEntityRepository
         ;
     }
     */
+
+
+    public function findNextPosition(Game $game)
+    {
+       $gameScene = $this->findBy(
+           ['game' => $game],
+           ['position' => 'DESC']);
+
+       if (!$gameScene || count($gameScene) == 0) {
+           return 1;
+       }
+
+       return $gameScene[0]->getPosition()+1;
+    }
+
+    public function findBetweenPositions(Game $game, int $startPosition, int $endPosition) {
+
+        if ($startPosition > $endPosition) {
+            $buffer = $startPosition;
+            $startPosition = $endPosition;
+            $endPosition = $buffer;
+        }
+
+        return $this->createQueryBuilder('s')
+            ->andWhere('s.position >= :startPosition')
+            ->setParameter('startPosition', $startPosition)
+            ->andWhere('s.position <= :endPosition')
+            ->setParameter('endPosition', $endPosition)
+            ->andWhere('s.game = :game')
+            ->setParameter('game', $game)
+            ->orderBy('s.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
 }

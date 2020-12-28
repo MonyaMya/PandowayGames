@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d1618db-6873-47f7-acd8-6eb67a5c3673" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/layout.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SceneController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SceneController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/game/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/game/edit.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,7 +14,9 @@
   </component>
   <component name="ComposerSettings" doNotAsk="true">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-    <execution />
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -138,6 +139,8 @@
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-code" />
       <path value="$PROJECT_DIR$/vendor/laminas/laminas-eventmanager" />
       <path value="$PROJECT_DIR$/vendor/jms/metadata" />
+      <path value="$PROJECT_DIR$/vendor/behat/transliterator" />
+      <path value="$PROJECT_DIR$/vendor/gedmo/doctrine-extensions" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lZhaq8ZQy4U5xcu7wjYooVkUul" />
@@ -153,7 +156,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/DataFixtures" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -162,7 +165,10 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="6d1618db-6873-47f7-acd8-6eb67a5c3673" name="Default Changelist" comment="" />
@@ -172,22 +178,41 @@
       <updated>1607810587031</updated>
       <workItem from="1607810588094" duration="576000" />
       <workItem from="1607880744622" duration="10893000" />
+      <workItem from="1608482575550" duration="7204000" />
+      <workItem from="1608535918607" duration="1337000" />
+      <workItem from="1608544108714" duration="4694000" />
+      <workItem from="1608552702940" duration="4567000" />
+      <workItem from="1608557712381" duration="299000" />
+      <workItem from="1608558468117" duration="5537000" />
+      <workItem from="1608641366888" duration="1087000" />
+      <workItem from="1608740646476" duration="1237000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2657" y="283" width="424" height="513" key="FileChooserDialogImpl" timestamp="1608739434237">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2657" y="283" width="424" height="513" key="FileChooserDialogImpl/0.27.1920.988/1920.0.1920.1080@1920.0.1920.1080" timestamp="1608739434237" />
+    <state x="2536" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1608740681010">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2536" y="366" key="com.intellij.ide.util.TipDialog/0.27.1920.988/1920.0.1920.1080@1920.0.1920.1080" timestamp="1608740681010" />
   </component>
 </project>

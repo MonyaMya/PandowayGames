@@ -1,7 +1,20 @@
 vich_uploader:
-    db_driver: orm
+  db_driver: orm
 
-    #mappings:
-    #    products:
-    #        uri_prefix: /images/products
-    #        upload_destination: '%kernel.project_dir%/public/images/products'
+  mappings:
+    game_image:
+      uri_prefix: /uploads/games
+      upload_destination: '%kernel.project_dir%/public/uploads/games'
+      namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+    scene_image:
+      uri_prefix: /uploads/scenes
+      upload_destination: '%kernel.project_dir%/public/uploads/scenes'
+      namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+    clue_image:
+      uri_prefix: /uploads/scenes
+      upload_destination: '%kernel.project_dir%/public/uploads/clue'
+      namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+    dialog_image:
+      uri_prefix: /uploads/scenes
+      upload_destination: '%kernel.project_dir%/public/uploads/dialog'
+      namer: Vich\UploaderBundle\Naming\SmartUniqueNamer

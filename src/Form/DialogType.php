@@ -6,6 +6,7 @@ use App\Entity\Dialog;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class DialogType extends AbstractType
 {
@@ -15,6 +16,7 @@ class DialogType extends AbstractType
             ->add('name')
             ->add('text')
             ->add('img')
+            ->add('imageFile', VichImageType::class)
         ;
     }
 

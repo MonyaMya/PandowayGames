@@ -6,10 +6,6 @@
     <h1>Create new Scene</h1>
 
     {{ include('scene/_form.html.twig') }}
-    <hr>
-    {{ include('clue/_form.html.twig') }}
-    <hr>
-    {{ include('dialog/_form.html.twig') }}
 
-    <a href="{{ path('scene_index') }}">back to list</a>
+    <a href="{{ path('scene_index',{'id':scene.game.id}) }}">back to list</a>
 {% endblock %}

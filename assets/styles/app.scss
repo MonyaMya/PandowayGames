@@ -2,7 +2,7 @@
 @import "~bootstrap/scss/bootstrap";
 
 body {
-  background-color: $dark;
+  background-color: red;
   color: $glow;
   height: 200vh;
 }
@@ -42,4 +42,8 @@ body {
 .container-fluid, .home-wrapper{
   width: 80%;
   margin-top: 50px;
+}
+
+.draggable {
+  cursor: move;
 }

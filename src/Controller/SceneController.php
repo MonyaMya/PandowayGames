@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Clue;
 use App\Entity\Dialog;
+use App\Entity\Game;
 use App\Entity\Scene;
 use App\Form\ClueType;
 use App\Form\DialogType;
@@ -20,19 +21,20 @@ use Symfony\Component\Routing\Annotation\Route;
 class SceneController extends AbstractController
 {
     /**
-     * @Route("/", name="scene_index", methods={"GET"})
+     * @Route("/game/{id}", name="scene_index", methods={"GET"})
      */
-    public function index(SceneRepository $sceneRepository): Response
+    public function index(Game $game, SceneRepository $sceneRepository): Response
     {
         return $this->render('scene/index.html.twig', [
-            'scenes' => $sceneRepository->findAll(),
+            'scenes' => $sceneRepository->findBy(['game'=>$game], ['position' => 'ASC']),
+            'game' => $game,
         ]);
     }
 
     /**
-     * @Route("/new", name="scene_new", methods={"GET","POST"})
+     * @Route("/new/game/{id}", name="scene_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Game $game, Request $request, SceneRepository $sceneRepository): Response
     {
 
         /* -- CLUE FORM --*/
@@ -66,15 +68,18 @@ class SceneController extends AbstractController
         /* -- SCENE FORM --*/
 
         $scene = new Scene();
+        $scene->setGame($game);
         $sceneForm = $this->createForm(SceneType::class, $scene);
         $sceneForm->handleRequest($request);
 
         if ($sceneForm->isSubmitted() && $sceneForm->isValid()) {
+            $scenePosition = $sceneRepository->findNextPosition($scene->getGame());
+            $scene->setPosition($scenePosition);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($scene);
             $entityManager->flush();
 
-            return $this->redirectToRoute('scene_index');
+            return $this->redirectToRoute('scene_index',['id' => $game->getId()]);
         }
 
         return $this->render('scene/new.html.twig', [
