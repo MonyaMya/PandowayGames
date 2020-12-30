@@ -2,7 +2,7 @@
 @import "~bootstrap/scss/bootstrap";
 
 body {
-  background-color: red;
+  background-color: $dark;
   color: $glow;
   height: 200vh;
 }
@@ -47,3 +47,28 @@ body {
 .draggable {
   cursor: move;
 }
+
+.form-control {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #0087A4;
+  background-color: #03161B;
+  border: 2px solid #0087A4;
+  border-radius: 6px;
+  transition: $glow_transition;
+  height: 44px;
+}
+
+.form-control:focus {
+  color: $glow;
+  border: 2px solid #0087A4;
+  background-color: #03161B;
+  box-shadow: $soft_glow_shadow;
+}
+
+.form-group, .center {
+  width: 45%;
+  margin-inline: auto;
+}
+
