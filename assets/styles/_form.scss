@@ -1,0 +1,24 @@
+.form-control {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #0087A4;
+  background-color: #03161B;
+  border: 2px solid #0087A4;
+  border-radius: 6px;
+  transition: $glow_transition;
+  height: 44px;
+}
+
+.form-control:focus, .form-control:hover {
+  color: $glow;
+  border: 2px solid $glow;
+  background-color: $dark;
+  box-shadow: $soft_glow_shadow;
+  transition: $glow_transition;
+}
+
+.form-group, .center {
+  width: 45%;
+  margin-inline: auto;
+}
