@@ -1,5 +1,4 @@
-{{ form_start(clueForm) }}
-{{ form_widget(clueForm.imageFile) }}
-        <button class="btn clue-thumbnail scene-type-btn">hey</button>
-
-{{ form_end(clueForm) }}
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}

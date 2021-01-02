@@ -10,9 +10,8 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th>Letter</th>
-                <th>Number</th>
-                <th>Img</th>
+                <th>LetterPosition</th>
+                <th>IntPosition</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,9 +20,8 @@
             <tr>
                 <td>{{ clue.id }}</td>
                 <td>{{ clue.name }}</td>
-                <td>{{ clue.letter }}</td>
-                <td>{{ clue.number }}</td>
-                <td>{{ clue.img }}</td>
+                <td>{{ clue.letterPosition }}</td>
+                <td>{{ clue.intPosition }}</td>
                 <td>
                     <a href="{{ path('clue_show', {'id': clue.id}) }}">show</a>
                     <a href="{{ path('clue_edit', {'id': clue.id}) }}">edit</a>
@@ -31,7 +29,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="5">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

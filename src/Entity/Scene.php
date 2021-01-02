@@ -38,25 +38,10 @@ class Scene
     /* _______________________________________*/
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $background;
-    /**
      * @ORM\Column(type="text")
      */
     private $description;
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $previousScene;
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $dialog;
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $investigation;
+
     /**
      * @ORM\ManyToOne(targetEntity=Game::class, inversedBy="scenes")
      * @ORM\JoinColumn(nullable=false)
@@ -67,6 +52,20 @@ class Scene
      * @ORM\Column(type="integer")
      */
     private $position;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Clue::class, mappedBy="scene", cascade={"persist", "remove"})
+     */
+    private $clue;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Dialog::class, mappedBy="scene", cascade={"persist", "remove"})
+     */
+    private $dialog;
+
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -111,15 +110,6 @@ class Scene
 
     /* _______________________________________*/
 
-    public function getBackground(): ?string
-    {
-        return $this->background;
-    }
-    public function setBackground(string $background): self
-    {
-        $this->background = $background;
-        return $this;
-    }
     public function getDescription(): ?string
     {
         return $this->description;
@@ -129,33 +119,7 @@ class Scene
         $this->description = $description;
         return $this;
     }
-    public function getPreviousScene(): ?int
-    {
-        return $this->previousScene;
-    }
-    public function setPreviousScene(int $previousScene): self
-    {
-        $this->previousScene = $previousScene;
-        return $this;
-    }
-    public function getDialog(): ?int
-    {
-        return $this->dialog;
-    }
-    public function setDialog(?int $dialog): self
-    {
-        $this->dialog = $dialog;
-        return $this;
-    }
-    public function getInvestigation(): ?int
-    {
-        return $this->investigation;
-    }
-    public function setInvestigation(?int $investigation): self
-    {
-        $this->investigation = $investigation;
-        return $this;
-    }
+
     public function getGame(): ?Game
     {
         return $this->game;
@@ -177,4 +141,45 @@ class Scene
 
         return $this;
     }
+
+    public function getClue(): ?Clue
+    {
+        return $this->clue;
+    }
+
+    public function setClue(?Clue $clue): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($clue === null && $this->clue !== null) {
+            $this->clue->setScene(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($clue !== null && $clue->getScene() !== $this) {
+            $clue->setScene($this);
+        }
+
+        $this->clue = $clue;
+
+        return $this;
+    }
+
+    public function getDialog(): ?Dialog
+    {
+        return $this->dialog;
+    }
+
+    public function setDialog(Dialog $dialog): self
+    {
+        // set the owning side of the relation if necessary
+        if ($dialog->getScene() !== $this) {
+            $dialog->setScene($this);
+        }
+
+        $this->dialog = $dialog;
+
+        return $this;
+    }
+
+
 }

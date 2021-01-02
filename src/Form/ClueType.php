@@ -6,7 +6,6 @@ use App\Entity\Clue;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ClueType extends AbstractType
 {
@@ -14,10 +13,9 @@ class ClueType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('letter')
-            ->add('number')
-            ->add('img')
-            ->add('imageFile', VichImageType::class)
+            ->add('letterPosition')
+            ->add('intPosition')
+            ->add('scene')
         ;
     }
 
