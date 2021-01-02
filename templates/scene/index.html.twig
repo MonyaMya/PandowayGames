@@ -8,12 +8,9 @@
     <table class="table" id="token" data-token="{{ csrf_token('my_intention') }}">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Background</th>
+                <th>Position</th>
                 <th>Description</th>
-                <th>PreviousScene</th>
-                <th>Dialog</th>
-                <th>Investigation</th>
+                <th>PICCCC</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,15 +18,25 @@
         <tbody class="dragContainer">
         {% for scene in scenes %}
             <tr class="draggable ma" draggable="true" position="{{ scene.id }}">
-                <td>{{ scene.id }}</td>
-                <td>{{ scene.background }}</td>
+                <td>{{ scene.position }}</td>
                 <td>{{ scene.description }}</td>
-                <td>{{ scene.previousScene }}</td>
-                <td>{{ scene.dialog }}</td>
-                <td>{{ scene.investigation }}</td>
                 <td>
-                    <a href="{{ path('scene_show', {'id': scene.id}) }}">show</a>
-                    <a href="{{ path('scene_edit', {'id': scene.id}) }}">edit</a>
+                    <a class="icon" href="{{ path('scene_show', {'id': scene.id}) }}">
+                        <svg width="46" height="34" viewBox="0 0 46 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.0795 17.3667L17.88 16.7781L18.0795 16.1895C20.0368 10.4158 27.9241 10.8344 29.3235 16.7781C27.9241 22.7218 20.0368 23.1404 18.0795 17.3667ZM15.3263 15.1565L15.1233 15.7553C14.8991 16.4168 14.8991 17.1394 15.1233 17.8009L15.3263 18.3997C18.2593 27.0516 30.0865 26.416 32.1661 17.4946C32.2758 17.0239 32.2758 16.5323 32.1661 16.0616C30.0865 7.14023 18.2593 6.50459 15.3263 15.1565ZM2.86182 14.9729L9.27606 8.22502C16.9063 0.197921 29.2774 0.197921 36.9077 8.22502L43.3219 14.9729C44.3133 16.0158 44.3133 17.7066 43.3219 18.7495L36.9077 25.4974C29.2774 33.5245 16.9063 33.5245 9.27606 25.4974L2.86181 18.7495C1.87047 17.7066 1.87047 16.0158 2.86182 14.9729Z" stroke="#0087A4" stroke-width="3"/>
+                        </svg>
+                    </a>
+                    <a class="icon delete" href="{{ path('scene_edit', {'id': scene.id, 'gameId': game.id}) }}">
+                        <svg width="42" height="48" viewBox="0 0 42 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M27.6508 45.75H21.2891H14.9453H14.8263C12.0374 45.75 9.68988 43.6625 9.36401 40.8927L7.17131 22.2547C6.94661 20.3448 8.30496 18.6113 10.2132 18.3728L12.2322 18.1204L28.888 17.2876C29.2997 17.267 29.7125 17.2928 30.1184 17.3645L33.1189 17.894C34.4084 18.1215 35.3038 19.3055 35.1717 20.6082L33.1227 40.8052C32.8378 43.6134 30.4734 45.75 27.6508 45.75Z" stroke="#0087A4" stroke-width="3"/>
+                            <line x1="15.3446" y1="18.2305" x2="17.9696" y2="45.3555" stroke="#0087A4" stroke-width="3"/>
+                            <line x1="26.7236" y1="17.5936" x2="24.9736" y2="45.5936" stroke="#0087A4" stroke-width="3"/>
+                            <path class="bin-top" d="M3.37204 9.43232C3.25155 8.5989 3.83314 7.8269 4.66746 7.7128L16.3264 6.11827C17.1414 6.0068 17.6554 5.18303 17.3973 4.40191C17.1379 3.61681 17.6584 2.78982 18.4785 2.6842L21.7928 2.25732C22.5852 2.15527 23.2878 2.77041 23.2914 3.56927C23.295 4.38016 24.0178 4.99873 24.8196 4.87708L35.7937 3.2119C36.6261 3.08558 37.4022 3.66137 37.5226 4.49468C37.6425 5.32388 37.0675 6.09326 36.2383 6.21314L5.08994 10.7162C4.26101 10.8361 3.49187 10.2613 3.37204 9.43232Z" fill="#0087A4"/>
+                        </svg>
+                    </a>
+                </td>
+                <td>
+                    <img src="{{ asset('uploads/scenes/' ~ scene.imageName) }}" alt="test, boh">
                 </td>
             </tr>
         {% else %}

@@ -12,6 +12,14 @@
     <header>
         {% block header %}
             {% include '_navbar.html.twig' %}
+            <div class="ma">
+                <h2>hello</h2>
+                {% if app.user %}
+                    <h1>{{ app.user.name }}</h1>
+                {% else %}
+                    <h1 class="ma">player</h1>
+                {% endif %}
+            </div>
         {% endblock %}
     </header>
     <body>
