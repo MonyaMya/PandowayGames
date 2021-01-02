@@ -3,29 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6d1618db-6873-47f7-acd8-6eb67a5c3673" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201221100537.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20210102174855.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ClueController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DialogController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SceneController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SceneController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Clue.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Clue.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Dialog.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Dialog.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Scene.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Scene.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/ClueType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/DialogType.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/SceneType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/SceneType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/clue/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/clue/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/clue/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/clue/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/clue/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/clue/show.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dialog/_delete_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dialog/_form.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dialog/edit.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dialog/index.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dialog/new.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/dialog/show.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/SceneType.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/scene/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/scene/_form.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -225,7 +203,7 @@
       <workItem from="1609419416215" duration="1807000" />
       <workItem from="1609427814430" duration="24782000" />
       <workItem from="1609583594670" duration="14770000" />
-      <workItem from="1609606436948" duration="3539000" />
+      <workItem from="1609606436948" duration="5212000" />
     </task>
     <servers />
   </component>

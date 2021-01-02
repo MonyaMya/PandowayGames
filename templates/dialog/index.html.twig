@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dialog index{% endblock %}
+
+{% block body %}
+    <h1>Dialog index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>CharacterName</th>
+                <th>Text</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dialog in dialogs %}
+            <tr>
+                <td>{{ dialog.id }}</td>
+                <td>{{ dialog.characterName }}</td>
+                <td>{{ dialog.text }}</td>
+                <td>
+                    <a href="{{ path('dialog_show', {'id': dialog.id}) }}">show</a>
+                    <a href="{{ path('dialog_edit', {'id': dialog.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('dialog_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Clue{% endblock %}
+
+{% block body %}
+    <h1>Clue</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ clue.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ clue.name }}</td>
+            </tr>
+            <tr>
+                <th>LetterPosition</th>
+                <td>{{ clue.letterPosition }}</td>
+            </tr>
+            <tr>
+                <th>IntPosition</th>
+                <td>{{ clue.intPosition }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('clue_index') }}">back to list</a>
+
+    <a href="{{ path('clue_edit', {'id': clue.id}) }}">edit</a>
+
+    {{ include('clue/_delete_form.html.twig') }}
+{% endblock %}
