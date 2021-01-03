@@ -15,8 +15,6 @@ class DialogType extends AbstractType
         $builder
             ->add('name')
             ->add('text')
-            ->add('img')
-            ->add('imageFile', VichImageType::class)
         ;
     }
 

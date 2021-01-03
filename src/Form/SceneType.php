@@ -13,12 +13,7 @@ class SceneType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('background')
             ->add('description')
-            ->add('previousScene')
-            ->add('dialog')
-            ->add('investigation')
-            ->add('game', null, ['choice_label' => 'title'])
             ->add('imageFile', VichImageType::class)
         ;
     }

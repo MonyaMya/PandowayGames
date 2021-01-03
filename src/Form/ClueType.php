@@ -16,8 +16,6 @@ class ClueType extends AbstractType
             ->add('name')
             ->add('letter')
             ->add('number')
-            ->add('img')
-            ->add('imageFile', VichImageType::class)
         ;
     }
 
