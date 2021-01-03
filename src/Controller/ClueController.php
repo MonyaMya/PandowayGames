@@ -36,7 +36,6 @@ class ClueController extends AbstractController
         $sceneForm = $this->createForm(SceneType::class, $scene);
         $sceneForm->handleRequest($request);
 
-
         /* -- CLUE FORM --*/
 
         $clue = new Clue();
@@ -44,6 +43,8 @@ class ClueController extends AbstractController
         $clueForm->handleRequest($request);
 
         if ($clueForm->isSubmitted() && $clueForm->isValid() && $sceneForm->isSubmitted() && $sceneForm->isValid()) {
+            $scenePosition = $sceneRepository->findNextPosition($scene->getGame());
+            $scene->setPosition($scenePosition);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($clue);
             $entityManager->persist($scene);
