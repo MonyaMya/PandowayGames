@@ -1,5 +1,22 @@
-{{ form_start(clueForm) }}
-{{ form_widget(clueForm.imageFile) }}
-        <button class="btn clue-thumbnail scene-type-btn">hey</button>
+{% form_theme sceneForm 'bootstrap_4_layout.html.twig' %}
 
-{{ form_end(clueForm) }}
+<div class="row">
+        <div class="col form-col">
+                {{ form_start(sceneForm) }}
+                {{ form_widget(sceneForm)}}
+
+        </div>
+        <div class="col form-col">
+                <h4 class="ma">Chose a scene type</h4>
+
+                {{ form_start(clueForm) }}
+                {{ form_widget(clueForm) }}
+
+                <button class="btn btn-primary">Save changes</button>
+                {{ form_end(clueForm) }}
+                {{ form_end(sceneForm) }}
+        </div>
+
+</div>
+
+

@@ -3,8 +3,18 @@
   <component name="ChangeListManager">
     <list default="true" id="6d1618db-6873-47f7-acd8-6eb67a5c3673" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/GameEditor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GameEditor.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/styles/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/styles/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ClueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ClueController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/DialogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DialogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SceneController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SceneController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/clue/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/clue/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/dialog/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dialog/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/scene/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/scene/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/scene/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/scene/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +148,7 @@
       <path value="$PROJECT_DIR$/vendor/jms/metadata" />
       <path value="$PROJECT_DIR$/vendor/behat/transliterator" />
       <path value="$PROJECT_DIR$/vendor/gedmo/doctrine-extensions" />
+      <path value="$PROJECT_DIR$/vendor/friendsofphp/proxy-manager-lts" />
     </include_path>
   </component>
   <component name="ProjectId" id="1lZhaq8ZQy4U5xcu7wjYooVkUul" />
@@ -154,7 +165,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/DataFixtures" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -189,6 +200,7 @@
       <workItem from="1609236823551" duration="373000" />
       <workItem from="1609239784301" duration="2750000" />
       <workItem from="1609339053725" duration="1341000" />
+      <workItem from="1609698011458" duration="1883000" />
     </task>
     <servers />
   </component>
@@ -206,15 +218,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="2657" y="283" width="424" height="513" key="FileChooserDialogImpl" timestamp="1608739434237">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2657" y="283" width="424" height="513" key="FileChooserDialogImpl/0.27.1920.988/1920.0.1920.1080@1920.0.1920.1080" timestamp="1608739434237" />
-    <state x="2536" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1608740681010">
-      <screen x="1920" y="0" width="1920" height="1080" />
-    </state>
-    <state x="2536" y="366" key="com.intellij.ide.util.TipDialog/0.27.1920.988/1920.0.1920.1080@1920.0.1920.1080" timestamp="1608740681010" />
   </component>
 </project>
