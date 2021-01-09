@@ -82,6 +82,26 @@ class DialogController extends AbstractController
     }
 
     /**
+     * @Route("/{id}/edit", name="dialog_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Dialog $dialog): Response
+    {
+        $form = $this->createForm(DialogType::class, $dialog);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('dialog_index');
+        }
+
+        return $this->render('dialog/edit.html.twig', [
+            'dialog' => $dialog,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
      * @Route("/{id}", name="dialog_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Dialog $dialog): Response

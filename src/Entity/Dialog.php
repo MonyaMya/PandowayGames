@@ -4,13 +4,9 @@ namespace App\Entity;
 
 use App\Repository\DialogRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
-
 
 /**
  * @ORM\Entity(repositoryClass=DialogRepository::class)
- * @Vich\Uploadable
  */
 class Dialog
 {
@@ -21,18 +17,15 @@ class Dialog
      */
     private $id;
 
-
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private $characterName;
 
     /**
      * @ORM\Column(type="text")
      */
     private $text;
-
-
 
     public function getId(): ?int
     {
@@ -40,13 +33,14 @@ class Dialog
     }
 
     public function getName(): ?string
+
     {
-        return $this->name;
+        return $this->characterName;
     }
 
-    public function setName(string $name): self
+    public function setCharacterName(string $characterName): self
     {
-        $this->name = $name;
+        $this->characterName = $characterName;
 
         return $this;
     }

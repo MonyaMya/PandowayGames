@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d1618db-6873-47f7-acd8-6eb67a5c3673" name="Default Changelist" comment="">
+
       <change beforePath="$PROJECT_DIR$/.idea/GameEditor.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GameEditor.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
@@ -16,6 +17,7 @@
       <change beforePath="$PROJECT_DIR$/templates/dialog/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/dialog/_form.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/scene/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/scene/_form.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/scene/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/scene/index.html.twig" afterDir="false" />
+      
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,10 +28,17 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="SCSS File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="new_scene_full_form_style" />
+        <entry key="$PROJECT_DIR$" value="all_style" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -166,12 +175,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/img" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -201,7 +213,9 @@
       <workItem from="1609236823551" duration="373000" />
       <workItem from="1609239784301" duration="2750000" />
       <workItem from="1609339053725" duration="1341000" />
+
       <workItem from="1609698011458" duration="2398000" />
+
     </task>
     <servers />
   </component>

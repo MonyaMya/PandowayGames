@@ -9,9 +9,8 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Name</th>
+                <th>CharacterName</th>
                 <th>Text</th>
-                <th>Img</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -19,9 +18,8 @@
         {% for dialog in dialogs %}
             <tr>
                 <td>{{ dialog.id }}</td>
-                <td>{{ dialog.name }}</td>
+                <td>{{ dialog.characterName }}</td>
                 <td>{{ dialog.text }}</td>
-                <td>{{ dialog.img }}</td>
                 <td>
                     <a href="{{ path('dialog_show', {'id': dialog.id}) }}">show</a>
                     <a href="{{ path('dialog_edit', {'id': dialog.id}) }}">edit</a>
@@ -29,7 +27,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="4">no records found</td>
             </tr>
         {% endfor %}
         </tbody>

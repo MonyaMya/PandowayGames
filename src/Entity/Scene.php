@@ -36,11 +36,12 @@ class Scene
     private $imageName;
 
     /* _______________________________________*/
-    
+
     /**
      * @ORM\Column(type="text")
      */
     private $description;
+
     
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -51,7 +52,7 @@ class Scene
      * @ORM\Column(type="integer", nullable=true)
      */
     private $clue;
-    
+
     /**
      * @ORM\ManyToOne(targetEntity=Game::class, inversedBy="scenes")
      * @ORM\JoinColumn(nullable=false)
@@ -62,6 +63,20 @@ class Scene
      * @ORM\Column(type="integer")
      */
     private $position;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Clue::class, mappedBy="scene", cascade={"persist", "remove"})
+     */
+    private $clue;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Dialog::class, mappedBy="scene", cascade={"persist", "remove"})
+     */
+    private $dialog;
+
+
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -118,13 +133,15 @@ class Scene
     }
 
     public function getDialog(): ?int
+
     {
-        return $this->dialog;
+        return $this->game;
     }
 
     public function setDialog(?int $dialog): self
+
     {
-        $this->dialog = $dialog;
+        $this->game = $game;
         return $this;
     }
 
@@ -140,24 +157,41 @@ class Scene
     }
 
     public function getGame(): ?Game
+
     {
-        return $this->game;
+        return $this->clue;
     }
 
+
     public function setGame(?Game $game): self
+
     {
-        $this->game = $game;
+        // unset the owning side of the relation if necessary
+        if ($clue === null && $this->clue !== null) {
+            $this->clue->setScene(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($clue !== null && $clue->getScene() !== $this) {
+            $clue->setScene($this);
+        }
+
+        $this->clue = $clue;
+
         return $this;
     }
 
-    public function getPosition(): ?int
+    public function getDialog(): ?Dialog
     {
-        return $this->position;
+        return $this->dialog;
     }
 
-    public function setPosition(int $position): self
+    public function setDialog(Dialog $dialog): self
     {
+
         $this->position = $position;
         return $this;
     }
+
+
 }

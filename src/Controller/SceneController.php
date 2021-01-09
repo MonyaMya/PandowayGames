@@ -36,7 +36,6 @@ class SceneController extends AbstractController
      */
     public function new(Game $game, Request $request, SceneRepository $sceneRepository): Response
     {
-
         $scene = new Scene();
         $scene->setGame($game);
         $sceneForm = $this->createForm(SceneType::class, $scene);

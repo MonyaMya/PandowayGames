@@ -4,11 +4,9 @@ namespace App\Entity;
 
 use App\Repository\ClueRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 /**
  * @ORM\Entity(repositoryClass=ClueRepository::class)
- * @Vich\Uploadable
  */
 class Clue
 {
@@ -27,14 +25,12 @@ class Clue
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $letter;
+    private $letterPosition;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $number;
-
-
+    private $intPosition;
 
     public function getId(): ?int
     {
@@ -53,28 +49,27 @@ class Clue
         return $this;
     }
 
-    public function getLetter(): ?string
+    public function getLetterPosition(): ?string
     {
-        return $this->letter;
+        return $this->letterPosition;
     }
 
-    public function setLetter(string $letter): self
+    public function setLetterPosition(string $letterPosition): self
     {
-        $this->letter = $letter;
+        $this->letterPosition = $letterPosition;
 
         return $this;
     }
 
-    public function getNumber(): ?int
+    public function getIntPosition(): ?int
     {
-        return $this->number;
+        return $this->intPosition;
     }
 
-    public function setNumber(int $number): self
+    public function setIntPosition(int $intPosition): self
     {
-        $this->number = $number;
+        $this->intPosition = $intPosition;
 
         return $this;
     }
-
 }
