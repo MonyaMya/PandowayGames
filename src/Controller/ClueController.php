@@ -3,8 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Clue;
+use App\Entity\Dialog;
+use App\Entity\Game;
+use App\Entity\Scene;
 use App\Form\ClueType;
+use App\Form\DialogType;
+use App\Form\SceneType;
 use App\Repository\ClueRepository;
+use App\Repository\SceneRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +21,51 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ClueController extends AbstractController
 {
+
+
+    /**
+     * @Route("/new/game/{id}", name="clue_new", methods={"GET","POST"})
+     */
+    public function new(Game $game, Request $request, SceneRepository $sceneRepository): Response
+    {
+
+        /* -- SCENE FORM --*/
+
+        $scene = new Scene();
+        $scene->setGame($game);
+        $sceneForm = $this->createForm(SceneType::class, $scene);
+        $sceneForm->handleRequest($request);
+
+        /* -- CLUE FORM --*/
+
+        $clue = new Clue();
+        $clueForm = $this->createForm(ClueType::class, $clue);
+        $clueForm->handleRequest($request);
+
+        if ($clueForm->isSubmitted() && $clueForm->isValid() && $sceneForm->isSubmitted() && $sceneForm->isValid()) {
+            $scenePosition = $sceneRepository->findNextPosition($scene->getGame());
+            $scene->setPosition($scenePosition);
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($clue);
+            $entityManager->persist($scene);
+            $entityManager->flush();
+            $scene->setClue($clue->getId());
+            $entityManager->flush();
+
+            return $this->redirectToRoute('scene_index',['id' => $game->getId()]);
+        }
+
+
+        return $this->render('clue/new.html.twig', [
+            'clue' => $clue,
+            'clueForm' => $clueForm->createView(),
+            'scene' => $scene,
+            'sceneForm' => $sceneForm->createView(),
+        ]);
+    }
+
+
+
     /**
      * @Route("/", name="clue_index", methods={"GET"})
      */

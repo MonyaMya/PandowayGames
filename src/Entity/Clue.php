@@ -32,12 +32,6 @@ class Clue
      */
     private $intPosition;
 
-    /**
-     * @ORM\OneToOne(targetEntity=Scene::class, inversedBy="clue", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $scene;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -75,18 +69,6 @@ class Clue
     public function setIntPosition(int $intPosition): self
     {
         $this->intPosition = $intPosition;
-
-        return $this;
-    }
-
-    public function getScene(): ?Scene
-    {
-        return $this->scene;
-    }
-
-    public function setScene(Scene $scene): self
-    {
-        $this->scene = $scene;
 
         return $this;
     }

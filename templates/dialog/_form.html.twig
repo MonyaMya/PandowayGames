@@ -1,4 +1,20 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+
+<div class="row">
+    <div class="col form-col">
+        {{ form_start(sceneForm) }}
+        {{ form_widget(sceneForm)}}
+
+    </div>
+    <div class="col form-col">
+        <h4 class="ma">Chose a scene type</h4>
+
+        {{ form_start(dialogForm) }}
+        {{ form_widget(dialogForm) }}
+
+        <button class="btn btn-primary">Save changes</button>
+        {{ form_end(dialogForm) }}
+        {{ form_end(sceneForm) }}
+    </div>
+
+</div>
+

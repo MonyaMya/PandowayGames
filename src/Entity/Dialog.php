@@ -27,18 +27,13 @@ class Dialog
      */
     private $text;
 
-    /**
-     * @ORM\OneToOne(targetEntity=Scene::class, inversedBy="dialog", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $scene;
-
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getCharacterName(): ?string
+    public function getName(): ?string
+
     {
         return $this->characterName;
     }
@@ -62,15 +57,4 @@ class Dialog
         return $this;
     }
 
-    public function getScene(): ?Scene
-    {
-        return $this->scene;
-    }
-
-    public function setScene(Scene $scene): self
-    {
-        $this->scene = $scene;
-
-        return $this;
-    }
 }

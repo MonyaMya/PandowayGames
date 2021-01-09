@@ -14,7 +14,6 @@ class DialogType extends AbstractType
         $builder
             ->add('characterName')
             ->add('text')
-            ->add('scene')
         ;
     }
 

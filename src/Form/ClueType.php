@@ -13,9 +13,8 @@ class ClueType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('letterPosition')
-            ->add('intPosition')
-            ->add('scene')
+            ->add('letter')
+            ->add('number')
         ;
     }
 

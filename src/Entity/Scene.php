@@ -42,6 +42,17 @@ class Scene
      */
     private $description;
 
+    
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $dialog;
+    
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $clue;
+
     /**
      * @ORM\ManyToOne(targetEntity=Game::class, inversedBy="scenes")
      * @ORM\JoinColumn(nullable=false)
@@ -114,40 +125,46 @@ class Scene
     {
         return $this->description;
     }
+
     public function setDescription(string $description): self
     {
         $this->description = $description;
         return $this;
     }
 
-    public function getGame(): ?Game
+    public function getDialog(): ?int
+
     {
         return $this->game;
     }
-    public function setGame(?Game $game): self
+
+    public function setDialog(?int $dialog): self
+
     {
         $this->game = $game;
         return $this;
     }
 
-    public function getPosition(): ?int
-    {
-        return $this->position;
-    }
-
-    public function setPosition(int $position): self
-    {
-        $this->position = $position;
-
-        return $this;
-    }
-
-    public function getClue(): ?Clue
+    public function getClue(): ?int
     {
         return $this->clue;
     }
 
-    public function setClue(?Clue $clue): self
+    public function setClue(?int $clue): self
+    {
+        $this->clue = $clue;
+        return $this;
+    }
+
+    public function getGame(): ?Game
+
+    {
+        return $this->clue;
+    }
+
+
+    public function setGame(?Game $game): self
+
     {
         // unset the owning side of the relation if necessary
         if ($clue === null && $this->clue !== null) {
@@ -171,13 +188,8 @@ class Scene
 
     public function setDialog(Dialog $dialog): self
     {
-        // set the owning side of the relation if necessary
-        if ($dialog->getScene() !== $this) {
-            $dialog->setScene($this);
-        }
 
-        $this->dialog = $dialog;
-
+        $this->position = $position;
         return $this;
     }
 

@@ -36,8 +36,6 @@ class SceneController extends AbstractController
      */
     public function new(Game $game, Request $request, SceneRepository $sceneRepository): Response
     {
-
-
         $scene = new Scene();
         $scene->setGame($game);
         $sceneForm = $this->createForm(SceneType::class, $scene);
@@ -53,11 +51,13 @@ class SceneController extends AbstractController
             return $this->redirectToRoute('scene_index',['id' => $game->getId()]);
         }
 
+
         return $this->render('scene/new.html.twig', [
             'scene' => $scene,
             'sceneForm' => $sceneForm->createView(),
         ]);
     }
+
 
     /**
      * @Route("/{id}", name="scene_show", methods={"GET"})

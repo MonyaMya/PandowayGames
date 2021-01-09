@@ -15,8 +15,9 @@ class SceneType extends AbstractType
     {
         $builder
             ->add('description', TextareaType::class, [
-                'attr' => ['placeholder' => 'Scene brief description (only visible to editors).']
+                'attr' => ['placeholder' => 'Scene brief description (only visible to you).']
             ])
+
             ->add('imageFile', VichImageType::class)
         ;
     }

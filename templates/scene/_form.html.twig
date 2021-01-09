@@ -1,40 +1,12 @@
 {% form_theme sceneForm 'bootstrap_4_layout.html.twig' %}
 
-<div class="row">
-    <div class="col form-col">
+
+    <div class="col form-col col-lg-6">
         {{ form_start(sceneForm) }}
-        {{ form_widget(sceneForm.description) }}
-        {{ form_widget(sceneForm.imageFile) }}
+        {{ form_widget(sceneForm)}}
 
-    </div>
-    <div class="col form-col">
-        <h4 class="ma">Chose a scene type</h4>
-        <div class="row scene-type-section">
-            <button class="btn break-scene-thumbnail scene-type-btn"></button>
-            <div class="col">
-                <p class="ma">Break scene</p>
-                <p class="ma">The player looks for objects or clues hidden in the background of the editor’s choise.</p>
-            </div>
-        </div>
-        <div class="row scene-type-section">
-            <button class="btn dialog-thumbnail scene-type-btn"></button>
-            <div class="col">
-                <p class="ma">Dialog</p>
-                <p class="ma light">A chosen character says or asks something to the player or to another character.</p>
-            </div>
-        </div>
-        <div class="row scene-type-section">
-
-            <button class="btn clue-thumbnail scene-type-btn"></button>
-            <div class="col">
-                <p class="ma">Investigation</p>
-                <p class="ma">The player looks for objects or clues hidden in the background of the editor’s choice.</p>
-            </div>
-        </div>
-
+         <button class="btn btn-primary">Save changes</button>
         {{ form_end(sceneForm) }}
-
     </div>
-</div>
 
 
